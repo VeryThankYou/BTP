@@ -64,7 +64,7 @@
     
         <tr>
           <th>Display Name: <br></th>
-          <th><input type="text" name="dispname" placeholder="Firstname" required></th>
+          <th><input type="text" name="dispname" placeholder="Display Name" required></th>
         </tr>
     
         <tr>
