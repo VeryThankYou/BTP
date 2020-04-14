@@ -1,0 +1,31 @@
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+
+@font-face {
+  font-family: MagicFont;
+  src: url(styling/MAGIC.TTF);
+}
+
+body {
+  background-color: #BDCAD2;
+}
+
+.noget {
+  background-color: #87796A;
+}
+
+.header {
+  background-color: #755292;
+}
+
+.title {
+  font-family: MagicFont;
+  font-size: 60px;
+  margin-bottom:10px;
+}
+
