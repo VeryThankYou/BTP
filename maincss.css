@@ -21,11 +21,21 @@ body {
 
 .header {
   background-color: #755292;
+  height: 54px;
+  padding: 2px;
 }
 
 .title {
   font-family: MagicFont;
   font-size: 60px;
-  margin-bottom:10px;
+  letter-spacing: 0.1em;
+  color: #D8DED3;
+  text-shadow: 2px 2px black;
+
+}
+
+.box {
+  background-image: url(styling/balduvian-trading-post.png);
+  background-repeat: no-repeat;
 }
 
