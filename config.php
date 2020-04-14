@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "logplan";
+$dbname = "btp";
 //The information needed to log into the database
 
 $conn = new mysqli($servername, $username, $password, $dbname);
