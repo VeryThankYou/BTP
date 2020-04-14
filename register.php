@@ -20,17 +20,25 @@
         //If there is such a user, a failure-message is send to the webpage
         echo "<span class='errorText'>Unable to create user. The email is already being used</span>";
       }else {
-        //Otherwise, the info from the inputs are saved, the password is hashed, and everything gets saved as a new user in our database, in the table 'user'
+
         $password = mysqli_real_escape_string($conn, password_hash($_POST['password'], PASSWORD_DEFAULT));
 
         $displayname = mysqli_real_escape_string($conn, $_POST['dispname']);
 
-        $sql = "INSERT INTO user (email, password, displayname) VALUES ('$email', '$password', '$displayname')";
+        $rannum = mt_rand(0, 9999);
 
-        $conn ->query($sql);
+        $msg = "Hi $displayname,\n\nHere is your authentication code: $rannum. Thank you for using our platform.\n\nBest regards,\nThe Balduvian Trading Post Team";
+        $msg = wordwrap($msg, 70);
+
+        mail('$email', 'Authentication Code', $msg);
+        //Otherwise, the info from the inputs are saved, the password is hashed, and everything gets saved as a new user in our database, in the table 'user'
+
+        //$sql = "INSERT INTO user (email, password, displayname) VALUES ('$email', '$password', '$displayname')";
+
+        //$conn ->query($sql);
         
         //At last the user gets redirected to login.php
-        header("location:login.php");
+        //header("location:login.php");
       }
     }
   }
