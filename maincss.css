@@ -5,7 +5,6 @@
   box-sizing: border-box;
 }
 
-
 @font-face {
   font-family: MagicFont;
   src: url(styling/MAGIC.TTF);
@@ -13,10 +12,6 @@
 
 body {
   background-color: #BDCAD2;
-}
-
-.noget {
-  background-color: #87796A;
 }
 
 .header {
@@ -34,8 +29,15 @@ body {
 
 }
 
-.box {
-  background-image: url(styling/balduvian-trading-post.png);
-  background-repeat: no-repeat;
+.input {
+  background-color: #87796A
+  
 }
+
+.box {
+  border-radius:  10px;
+  padding: 5px;
+  background-color: #87796A
+}
+
 
