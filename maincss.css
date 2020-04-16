@@ -15,29 +15,48 @@ body {
 }
 
 .header {
+  font-size: 60px;
   background-color: #755292;
-  height: 54px;
-  padding: 2px;
+  height: 0.9em;
+  padding: 0.034em;
 }
 
 .title {
   font-family: MagicFont;
-  font-size: 60px;
   letter-spacing: 0.1em;
   color: #D8DED3;
-  text-shadow: 2px 2px black;
+  text-shadow: 0.034em 0.034em black;
 
+}
+
+.container {
+  background-color: #87796A;
+  border-radius: 0.5em;
+  border-style: groove;
+  border-width: 0.1em;
 }
 
 .input {
-  background-color: #87796A
-  
+  font-size: 16px;
+  margin: auto;
+  margin-top: 20vh;
+  padding: 1em;
+  text-align: center; 
+  width: 15em;
 }
 
-.box {
-  border-radius:  10px;
-  padding: 5px;
-  background-color: #87796A
+.input input[type=submit] {
+  height: 3em;
+  width: 7em;
+  font-size: 24px;
+  font-family: MagicFont;
+  color: black;
+  text-shadow: 2px 2px #D8DED3;
 }
 
-
+.input p {
+  margin: 0.5em 0em;
+  font-weight: bold;
+  color: #D8DED3;
+  text-shadow: 0.034em 0.034em black;
+}
