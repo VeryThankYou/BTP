@@ -70,23 +70,21 @@ function openAuth() {
 
 ?>
 
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="styling/maincss.css">
+    <title>Balduvian Trading Post</title>
 </head>
-<body>
 
-  <div class="header">
-    <h1>LogPlan</h1>
-  </div>
-  
+<body>
+    <div class="header">
+        <p class="title">BTP</p> 
+  </div>  
+    
     <div class="inputBox_regIn">
     <form method="POST">
       
