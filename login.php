@@ -75,7 +75,7 @@ if(!empty( $_POST['email'] ) && !empty( $_POST['pw'] )) {
   </div>
 
   <div class="container navi">
-    <button type="button" onclick="window.location.href='register.php'" name="btnCancel">Register</button>  
+    <button type="button" onclick="window.location.href='register.php'" name="btnCancel">Go to Register</button>  
   </div>
 
 </body>

@@ -63,23 +63,36 @@ body {
   padding-bottom: 0.3em;
 }
 
+.auth p {
+  font-size: 24px;
+  text-shadow: 0.034em 0.034em #D8DED3;
+  font-family: MagicFont;
+}
+
 .auth input[type=text] {
   margin-bottom: 0.5em;
   margin-top: 0.334em;
 }
 
-.auth p {
-  font-size: 24px;
+.auth input[type=submit] {
+  font-family: MagicFont;
+  background-color: #755292;
+  border-width: 1px;
+  border-color: black;
+  text-shadow: 0.034em 0.034em #D8DED3;
+  border-radius: 0.25em;
+  padding: 0.5em 1em;
 }
 
 .navi button {
-  padding: 1em;
+  padding: 0.5em 0;
   background-color: transparent;
   border: none;  
   cursor: pointer;
   font-size: 24px;
   font-family: MagicFont;
   text-shadow: 0.034em 0.034em #D8DED3;
+  width: 100%;
 }
 
 .input h1 {
@@ -93,8 +106,11 @@ body {
   width: 7em;
   font-size: 24px;
   font-family: MagicFont;
-  color: black;
-  text-shadow: 2px 2px #D8DED3;
+  background-color: #755292;
+  border-width: 1px;
+  border-color: black;
+  text-shadow: 0.034em 0.034em #D8DED3;
+  border-radius: 0.25em;
 }
 
 .input p {

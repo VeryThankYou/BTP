@@ -120,7 +120,7 @@ function openAuth() {
           <p>Authentication key:<br></p>
           <input type="text" name="auth" placeholder="0000" required>
 
-          <input type="submit" name="check" value="Authenticate User">
+          <input type="submit" name="check" value="Authenticate">
 
           <input type="hidden" name="hiddenPassword" <?php if(isset($password)){echo 'value='.$password;}?> >
           <input type="hidden" name="hiddenDispname" <?php if(isset($displayname)){echo 'value='.$displayname;}?> >
@@ -130,7 +130,7 @@ function openAuth() {
   
 
   <div class="container navi">
-    <button class="switch_regIn" type="button" onclick="window.location.href='login.php'" name="btnCancel">Login</button>  
+    <button type="button" onclick="window.location.href='login.php'" name="btnCancel">Go to Login</button>  
   </div>
 </body>
 
