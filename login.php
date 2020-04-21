@@ -51,10 +51,10 @@ if(!empty( $_POST['email'] ) && !empty( $_POST['pw'] )) {
     </div>
     
 
-  <div class="inputBox_regIn">
+  <div class="container input">
     <h1>Login</h1>  
     <form method="POST">
-      <table class="table_regIn">
+      <table>
 
         <tr>
           <th>Email: <br/></th>
@@ -74,8 +74,8 @@ if(!empty( $_POST['email'] ) && !empty( $_POST['pw'] )) {
     </form>
   </div>
 
-  <div>
-    <button class="switch_regIn" type="button" onclick="window.location.href='register.php'" name="btnCancel">Register</button>  
+  <div class="container navi">
+    <button type="button" onclick="window.location.href='register.php'" name="btnCancel">Register</button>  
   </div>
 
 </body>
