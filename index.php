@@ -15,30 +15,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     header('location:register.php');	}
 	}
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/main.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="styling/maincss.css">
+    <title>Balduvian Trading Post</title>
 </head>
 
 <body>
-
-  <div class="header">
-    <h1>LogPlan</h1>
-  </div>  
-
-  <div class="inputBox_index">
-    <h1>Login or register</h1>
+    <div class="header">
+        <p class="title">BTP</p> 
+    </div>
     
-    <form method="POST">
-      <input type="submit" name="login" value="Login">
-      <input type="submit" name="register" value="Register">
-    </form>
-  </div>
+    <div class="container input">
+        <form method="POST">
+            <input type="submit" name="login" value="Login">
+            <p>OR</p>
+            <input type="submit" name="register" value="Register">
+        </form>
 
+    </div>
 </body>
 </html>

@@ -41,21 +41,20 @@ if(!empty( $_POST['email'] ) && !empty( $_POST['pw'] )) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/main.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="styling/maincss.css">
+    <title>Balduvian Trading Post</title>
 </head>
+
 <body>
+    <div class="header">
+        <p class="title">BTP</p> 
+    </div>
+    
 
-  <div class="header">
-    <h1>LogPlan</h1>
-  </div> 
-
-
-
-  <div class="inputBox_regIn">
+  <div class="container input">
     <h1>Login</h1>  
     <form method="POST">
-      <table class="table_regIn">
+      <table>
 
         <tr>
           <th>Email: <br/></th>
@@ -75,8 +74,8 @@ if(!empty( $_POST['email'] ) && !empty( $_POST['pw'] )) {
     </form>
   </div>
 
-  <div>
-    <button class="switch_regIn" type="button" onclick="window.location.href='register.php'" name="btnCancel">Register</button>  
+  <div class="container navi">
+    <button type="button" onclick="window.location.href='register.php'" name="btnCancel">Register</button>  
   </div>
 
 </body>
