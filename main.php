@@ -4,7 +4,7 @@ session_start();
 include('config.php');
 
 //Check if we have a session called email. This way we block users from changing the url and trying to skip login.
-if(!isset($_SESSION['email'])){
+if(!isset($_SESSION['id'])){
   header('location: index.php');  
 }
 
@@ -18,32 +18,32 @@ function userID($email, $conn){
 
 if ($_SERVER["REQUEST_METHOD"] == "POST")  {
   //Checks if we have pushed the button named conversation
-  if(isset($_POST['newProject'])){
-    $user = userID($_SESSION['email'], $conn);
-    $name = $_POST['projectName'];
+  if(isset($_POST['newGroup'])){
+    $user = $_SESSION['id'];
+    $name = $_POST['groupName'];
 
-    $sql = "INSERT INTO project (name, user_id) VALUES ('$name', '$user');";
+    $sql = "INSERT INTO playgroup (name, user_id) VALUES ('$name', '$user');";
     $conn ->query($sql);
 
-    $sql = "SELECT MAX(id) FROM project WHERE user_id=$user;";
+    $sql = "SELECT MAX(id) FROM playgroup WHERE user_id=$user;";
     $result = $conn->query($sql);
     $fetch = $result;
     $row = mysqli_fetch_assoc($fetch);
-    $project = $row['MAX(id)'];
+    $playgroup = $row['MAX(id)'];
 
-    $sql = "INSERT INTO user_project (user_id, project_id) VALUES ('$user', '$project');";
+    $sql = "INSERT INTO user_playgroup (user_id, playgroup_id) VALUES ('$user', '$playgroup');";
     $conn ->query($sql);
 
    
     }else if(isset($_POST['open'])){
 
       $hentid = $_POST['openid'];
-      $_SESSION['project'] = $hentid;
-      header('location:project.php');
+      $_SESSION['playgroup'] = $hentid;
+      header('location:playgroup.php');
 
     }else if(isset($_POST['dlt'])){
       $commid = $_POST['dltid'];
-      $sql = "DELETE FROM project WHERE id=$commid;";
+      $sql = "DELETE FROM playgroup WHERE id=$commid;";
       $conn->query($sql);
     }
   }
@@ -67,8 +67,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")  {
 
     <form method="POST" class="header_Form">
   
-      <input type="text" name="projectName">
-      <input type="submit" name="newProject" value="Create Project">
+      <input type="text" name="groupName">
+      <input type="submit" name="newGroup" value="Create Playgroup">
 
     </form>
 
@@ -81,15 +81,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")  {
   </div>
 
   <?php
-  $userid = userID($_SESSION['email'], $conn);
-  $sql = "SELECT * FROM project INNER JOIN user_project ON project.id = user_project.project_id WHERE user_project.user_id = $userid;";
+  $userid = $_SESSION['id'];
+  $sql = "SELECT * FROM playgroup INNER JOIN user_playgroup ON playgroup.id = user_playgroup.playgroup_id WHERE user_playgroup.user_id = $userid;";
   $result = $conn->query($sql);
 
   if($result->num_rows > 0){
   ?>
 
   <div class="projectTable">
-    <p>Projects</p>
+    <p>Playgroups</p>
   <?php
   // løb alle rækker igennem
   while($row = $result->fetch_assoc()) {
@@ -100,7 +100,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")  {
       <?php
         $name = $row['name'];
         $id = $row['id'];
-        $sql = "SELECT user_id FROM project WHERE id=$id;";
+        $sql = "SELECT user_id FROM playgroup WHERE id=$id;";
         $result2 = $conn->query($sql);
         $row2 = mysqli_fetch_assoc($result2);
         $creator = $row2['user_id'];

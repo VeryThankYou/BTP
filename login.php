@@ -4,6 +4,14 @@ session_start();
 //Connect to our database
 include('config.php');
 
+function userID($email, $conn){
+  $sql = "SELECT id FROM user WHERE email='$email';";
+  $result = $conn->query($sql);
+  $fetch = $result;
+  $row = mysqli_fetch_assoc($fetch);
+  return $row['id'];
+}
+
 //Variables for checking login are created
 $email="";
 $pw="";
@@ -30,6 +38,7 @@ if(!empty( $_POST['email'] ) && !empty( $_POST['pw'] )) {
   if($email == $cemail && password_verify($pw, $cpw) == true) {
     //The mail is saved as a session-variable
     $_SESSION['email'] = $email;
+    $_SESSION['id'] = userID($email, $conn);
     //Redirects to main.php
     header('location:main.php');
   }
