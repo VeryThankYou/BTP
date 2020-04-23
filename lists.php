@@ -15,11 +15,6 @@ function userID($email, $conn){
   $row = mysqli_fetch_assoc($fetch);
   return $row['id'];
 }
-
-if ($_SERVER["REQUEST_METHOD"] == "POST")  {
-    //Checks if we have pushed the button named conversation
-    if(isset($_POST['changeName'])){
-
 ?>
 
 <!DOCTYPE html>
@@ -31,11 +26,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")  {
   <link rel="stylesheet" href="css/main.css">
   <title>Document</title>
 </head>
+
 <body>
 
+	<div>
+		<table>
+			<tr> Your list of wanted cards: </tr>
+			<?php
+				$sql = "SELECT card.name FROM card INNER JOIN user_card ON ";
+			?>
 
-
-
+	</div>
 
 </body>
 </html>

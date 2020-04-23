@@ -45,6 +45,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")  {
       $commid = $_POST['dltid'];
       $sql = "DELETE FROM playgroup WHERE id=$commid;";
       $conn->query($sql);
+    }else if(isset($_POST['list'])){
+        $_SESSION['listowner'] = $_SESSION['id'];
+        header('location:lists.php');
     }
   }
 
@@ -66,7 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")  {
     <h1>LogPlan</h1>
 
     <form method="POST" class="header_Form">
-  
+      <input type="submit" name="list" value="View my lists">
       <input type="text" name="groupName">
       <input type="submit" name="newGroup" value="Create Playgroup">
 
