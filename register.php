@@ -118,7 +118,7 @@ function openAuth() {
     </div>
 
     <div id="authDiv" style="display:none">
-      <form method="POST"
+      <form method="POST">
         <table class="table_auth">
 
           <tr>
