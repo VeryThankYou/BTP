@@ -30,11 +30,70 @@ function userID($email, $conn){
 <body>
 
 	<div>
-		<table>
-			<tr> Your list of wanted cards: </tr>
+
 			<?php
-				$sql = "SELECT card.name FROM card INNER JOIN user_card ON ";
-			?>
+        $id = $_SESSION['id'];
+        $sql = "SELECT card.name FROM card INNER JOIN user_card ON card.id = user_card.card_id WHERE user_card.user_id = $id AND user_card.want > 0;";
+        $result = $conn->query($sql);
+        if($result->num_rows > 0){
+          ?>
+        
+          <table class="listTable">
+            <p>Wants</p>
+          <?php
+          // løb alle rækker igennem
+          while($row = $result->fetch_assoc()) {
+          ?>
+              
+              <?php
+                $name = $row['name'];
+                $num = $row['want'];
+                echo "<tr>";
+                echo "<th>$num</th><th>$name</th>";
+                echo "</tr>";
+
+              ?>
+          <?php
+          }
+          ?>
+          </table>
+          <?php
+          } else{
+            echo "You have no cards on your wants-list.";
+          }
+
+
+          $id = $_SESSION['id'];
+          $sql = "SELECT card.name FROM card INNER JOIN user_card ON card.id = user_card.card_id WHERE user_card.user_id = $id AND user_card.trading > 0;";
+          $result = $conn->query($sql);
+          if($result->num_rows > 0){
+            ?>
+          
+            <table class="listTable">
+              <p>Tradinglist</p>
+            <?php
+            // løb alle rækker igennem
+            while($row = $result->fetch_assoc()) {
+            ?>
+                
+                <?php
+                  $name = $row['name'];
+                  $num = $row['trading'];
+                  echo "<tr>";
+                  echo "<th>$num</th><th>$name</th>";
+                  echo "</tr>";
+  
+                ?>
+            <?php
+            }
+            ?>
+            </table>
+            <?php
+            } else{
+              echo "You have no cards on your trading-list.";
+            }
+          ?>
+        
 
 	</div>
 
