@@ -114,8 +114,10 @@ function openAuth() {
     </form>
     </div>
 
+
     <div class="container auth" id="authDiv" style="display:none;">
       <form method="POST">
+
 
           <p>Authentication key:<br></p>
           <input type="text" name="auth" placeholder="0000" required>
