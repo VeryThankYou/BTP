@@ -58,31 +58,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")  {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="css/main.css">
-  <title>Document</title>
+  <link rel="stylesheet" href="styling/maincss.css">
+  <title>Balduvian Trading Post</title>
 </head>
 
 <body>
-
   <div class="header">
+    
+    <p class="title">BTP</p> 
 
-    <h1>LogPlan</h1>
-
-    <form method="POST" class="header_Form">
-      <input type="submit" name="list" value="View my lists">
-      <input type="text" name="groupName">
-      <input type="submit" name="newGroup" value="Create Playgroup">
-
-    </form>
-
-    <a href="index.php">
-      <div class="logout">
+    <a href="index.php" class="logout">
         <p>Logout</p>
-      </div>
     </a>    
 
   </div>
 
+
+  <div class="mainCon">
+    <div class="container mcGroup">
+      <h1>Playgroups</h1>
+      
+      <form method="POST">
+        <input type="text" name="groupName">
+        <input type="submit" name="newGroup" value="Create Playgroup">
+
+      </form>
   <?php
   $userid = $_SESSION['id'];
   $sql = "SELECT * FROM playgroup INNER JOIN user_playgroup ON playgroup.id = user_playgroup.playgroup_id WHERE user_playgroup.user_id = $userid;";
@@ -91,37 +91,43 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")  {
   if($result->num_rows > 0){
   ?>
 
-  <div class="projectTable">
-    <p>Playgroups</p>
-  <?php
-  // løb alle rækker igennem
-  while($row = $result->fetch_assoc()) {
-  ?>
-    <div>
-      <div class="project">
-      
-      <?php
-        $name = $row['name'];
-        $id = $row['id'];
-        $sql = "SELECT user_id FROM playgroup WHERE id=$id;";
-        $result2 = $conn->query($sql);
-        $row2 = mysqli_fetch_assoc($result2);
-        $creator = $row2['user_id'];
-        echo "<h1>$name</h1> <form method='POST'> <input type='submit' name='open' value='Open' /><input type='hidden' value='$id' name='openid'/></form></div>";
-        if($creator == $userid){
-          echo "<div class='deletThis'><form method='POST'><input type='submit' name='dlt' value='Delete'><input type='hidden' name='dltid' value='$id'></form></div>";
-      ?>
-    </div>
-  <?php
-  }
-  }
-  ?>
-  
-  </div>
 
-  <?php
-  }
-  ?>
+    <?php
+    // løb alle rækker igennem
+    while($row = $result->fetch_assoc()) {
+    ?>  
+      <div class="container stuff">
+
+        <?php
+          $name = $row['name'];
+          $id = $row['id'];
+          $sql = "SELECT user_id FROM playgroup WHERE id=$id;";
+          $result2 = $conn->query($sql);
+          $row2 = mysqli_fetch_assoc($result2);
+          $creator = $row2['user_id'];
+          echo "<p>$name</p> <div><form method='POST'> <input type='submit' name='open' value='Open' /><input type='hidden' value='$id' name='openid'/></form></div>";
+          if($creator == $userid){
+            echo "<div><form method='POST'><input type='submit' name='dlt' value='Delete'><input type='hidden' name='dltid' value='$id'></form></div>";
+  
+    }
+    ?>
+
+      </div>
+   
+   <?php
+    }
+    }
+    ?>
+    
+    </div>
+
+    <div class="container mcList">
+      <form method="POST" class="container">
+        <input type="submit" name="list" value="View my lists">
+      </form>
+      
+    </div>
+  </div>
 
 <body>
 </html>

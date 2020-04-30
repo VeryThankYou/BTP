@@ -26,7 +26,16 @@ body {
   letter-spacing: 0.1em;
   color: #D8DED3;
   text-shadow: 0.034em 0.034em black;
+  float: left;
+}
 
+.logout {
+  float: right;
+  font-family: MagicFont;
+  letter-spacing: 0.1em;
+  color: #D8DED3;
+  text-shadow: 0.034em 0.034em black;
+  font-size: 0.75em;
 }
 
 .container {
@@ -118,4 +127,60 @@ body {
   font-weight: bold;
   color: #D8DED3;
   text-shadow: 0.034em 0.034em black;
+}
+
+.mainCon {
+  margin: auto;
+  text-align: center;
+  display: flex;
+  padding-top: 5em;
+}
+
+.mcGroup {
+  width: 40em;
+  margin-right: 2em;
+}
+
+.mcList{
+  width: 30em;
+}
+
+.mcGroup h1 {
+  font-size: 48px;
+  text-shadow: 0.034em 0.034em #D8DED3;
+  font-family: MagicFont;
+  text-align: center;
+}
+
+.mcGroup p {
+  font-size: 24px;
+  text-shadow: 0.034em 0.034em #D8DED3;
+  font-family: MagicFont;
+  text-align: center;
+}
+
+.mcGroup input[type=submit] {
+  padding: 0.3em 0.3em;
+  font-size: 24px;
+  font-family: MagicFont;
+  background-color: #755292;
+  cursor: pointer;
+  border-width: 1px;
+  border-color: black;
+  text-shadow: 0.034em 0.034em #D8DED3;
+  border-radius: 0.25em;
+}
+
+.mcGroup input[type=text] {
+  padding: 0.3em 0.3em;
+  font-size: 24px;
+  font-family: MagicFont;
+  border-width: 1px;
+  border-color: black;
+  text-shadow: 0.034em 0.034em #D8DED3;
+  border-radius: 0.25em;
+}
+
+.stuff div {
+  display: inline-block;
 }
