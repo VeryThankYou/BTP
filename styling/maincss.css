@@ -1,0 +1,121 @@
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: MagicFont;
+  src: url(MAGIC.TTF);
+}
+
+body {
+  background-color: #BDCAD2;
+}
+
+.header {
+  font-size: 60px;
+  background-color: #755292;
+  height: 0.9em;
+  padding: 0.034em;
+}
+
+.title {
+  font-family: MagicFont;
+  letter-spacing: 0.1em;
+  color: #D8DED3;
+  text-shadow: 0.034em 0.034em black;
+
+}
+
+.container {
+  background-color: #87796A;
+  border-radius: 0.5em;
+  border-style: groove;
+  border-width: 0.1em;
+}
+
+.input {
+  font-size: 16px;
+  margin: auto;
+  margin-top: 20vh;
+  padding: 1em;
+  text-align: center; 
+  width: 15em;
+}
+
+.navi {
+  font-size: 16px;
+  margin: auto;
+  margin-top: 2vh;
+  text-align: center; 
+  width: 10em;
+}
+
+.auth {
+  font-size: 16px;
+  margin: auto;
+  margin-top: 2vh;
+  text-align: center; 
+  width: 13em;
+  padding-top: 0.5em;
+  padding-bottom: 0.3em;
+}
+
+.auth p {
+  font-size: 24px;
+  text-shadow: 0.034em 0.034em #D8DED3;
+  font-family: MagicFont;
+}
+
+.auth input[type=text] {
+  margin-bottom: 0.5em;
+  margin-top: 0.334em;
+}
+
+.auth input[type=submit] {
+  font-family: MagicFont;
+  background-color: #755292;
+  border-width: 1px;
+  border-color: black;
+  text-shadow: 0.034em 0.034em #D8DED3;
+  border-radius: 0.25em;
+  padding: 0.5em 1em;
+}
+
+.navi button {
+  padding: 0.5em 0;
+  background-color: transparent;
+  border: none;  
+  cursor: pointer;
+  font-size: 24px;
+  font-family: MagicFont;
+  text-shadow: 0.034em 0.034em #D8DED3;
+  width: 100%;
+}
+
+.input h1 {
+  font-size: 48px;
+  font-family: MagicFont;
+  text-shadow: 0.034em 0.034em #D8DED3;
+}
+
+.input input[type=submit] {
+  height: 3em;
+  width: 7em;
+  font-size: 24px;
+  font-family: MagicFont;
+  background-color: #755292;
+  border-width: 1px;
+  border-color: black;
+  text-shadow: 0.034em 0.034em #D8DED3;
+  border-radius: 0.25em;
+}
+
+.input p {
+  margin: 0.5em 0em;
+  font-weight: bold;
+  color: #D8DED3;
+  text-shadow: 0.034em 0.034em black;
+}
