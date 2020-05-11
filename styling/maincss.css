@@ -50,15 +50,31 @@ body {
   margin: auto;
   margin-top: 20vh;
   padding: 1em;
-  text-align: center; 
+  text-align: center;
   width: 15em;
+}
+
+.input table{
+  width: 100%;
+}
+
+.input input[type=text]{
+  width: 100%;
+}
+
+.input input[type=email]{
+  width: 100%;
+}
+
+.input input[type=password]{
+  width: 100%;
 }
 
 .navi {
   font-size: 16px;
   margin: auto;
   margin-top: 2vh;
-  text-align: center; 
+  text-align: center;
   width: 10em;
 }
 
@@ -66,7 +82,7 @@ body {
   font-size: 16px;
   margin: auto;
   margin-top: 2vh;
-  text-align: center; 
+  text-align: center;
   width: 13em;
   padding-top: 0.5em;
   padding-bottom: 0.3em;
@@ -91,12 +107,13 @@ body {
   text-shadow: 0.034em 0.034em #D8DED3;
   border-radius: 0.25em;
   padding: 0.5em 1em;
+  cursor: pointer;
 }
 
 .navi button {
   padding: 0.5em 0;
   background-color: transparent;
-  border: none;  
+  border: none;
   cursor: pointer;
   font-size: 24px;
   font-family: MagicFont;
@@ -120,6 +137,7 @@ body {
   border-color: black;
   text-shadow: 0.034em 0.034em #D8DED3;
   border-radius: 0.25em;
+  cursor: pointer;
 }
 
 .input p {
@@ -143,6 +161,27 @@ body {
 
 .mcList{
   width: 30em;
+  height: 12em;
+}
+
+.mcList input[type=submit] {
+  margin-top: 1em;
+  padding: 0.3em 0.3em;
+  font-size: 24px;
+  font-family: MagicFont;
+  background-color: #755292;
+  cursor: pointer;
+  border-width: 1px;
+  border-color: black;
+  text-shadow: 0.034em 0.034em #D8DED3;
+  border-radius: 0.25em;
+}
+
+.mcList h1 {
+  font-size: 48px;
+  text-shadow: 0.034em 0.034em #D8DED3;
+  font-family: MagicFont;
+  text-align: center;
 }
 
 .mcGroup h1 {

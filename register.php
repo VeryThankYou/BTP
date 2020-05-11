@@ -93,21 +93,33 @@ function openAuth() {
     
           <tr>
             <th>Email: <br></th>
-            <th><input type="email" name="email" placeholder="Enter email" <?php if(isset($email)){echo 'value='.$email;}?> required></th>
           </tr>
       
           <tr>
+            <th><input type="email" name="email" placeholder="Enter email" <?php if(isset($email)){echo 'value='.$email;}?> required></th>
+          </tr>
+
+
+          <tr>
             <th>Display Name: <br></th>
+          </tr>
+
+          <tr>  
             <th><input type="text" name="dispname" placeholder="Display Name" <?php if(isset($displayname)){echo 'value='.$displayname;}?> required></th>
           </tr>
       
+
           <tr>
             <th>Password: <br></th>
-            <th><input type="password" name="password" placeholder="Password" <?php if(isset($password)){echo 'value='.$password;}?> required></th>
           </tr>
 
           <tr>
-            <th colspan="2"><input type="submit" value="Create" name="createUser" /> </th>
+            <th><input type="password" name="password" placeholder="Password" <?php if(isset($password)){echo 'value='.$password;}?> required></th>
+          </tr>
+
+
+          <tr>
+            <th><input type="submit" value="Create" name="createUser" /> </th>
           </tr>
       
       </table>

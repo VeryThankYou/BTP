@@ -122,7 +122,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")  {
     </div>
 
     <div class="container mcList">
-      <form method="POST" class="container">
+      <h1>Lists</h1>
+      
+      <form method="POST">
         <input type="submit" name="list" value="View my lists">
       </form>
       
