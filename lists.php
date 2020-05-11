@@ -60,13 +60,27 @@ if($_SERVER["REQUEST_METHOD"] == "POST")  {
 	<div class="mainList">
     <div class="container list">
 
-      <?php
-        $id = $_SESSION['listowner'];
-        $sql = "SELECT * FROM card INNER JOIN user_card ON card.id = user_card.card_id WHERE user_card.user_id = $id AND user_card.want > 0;";
-        $result = $conn->query($sql);
-        if($result->num_rows > 0){
-      ?>
-          <h1>Wants</h1>
+      <div class="skrt">
+        <h1>Wants</h1>
+
+        <?php
+          $user = $_SESSION['id'];
+          $owner = $_SESSION['listowner'];
+          if($user == $owner){
+            echo "<form method='POST'> <input type='submit' name='addwants' value='Add cards'/> </form>";
+          }
+        ?>
+
+        <?php
+          $id = $_SESSION['listowner'];
+          $sql = "SELECT * FROM card INNER JOIN user_card ON card.id = user_card.card_id WHERE user_card.user_id = $id AND user_card.want > 0;";
+          $result = $conn->query($sql);
+          if($result->num_rows > 0){
+        ?>
+      </div>
+
+
+
           <table>
             
               
@@ -92,15 +106,22 @@ if($_SERVER["REQUEST_METHOD"] == "POST")  {
         } else{
           echo "You have no cards on your wants-list.\n";
         }
-        $user = $_SESSION['id'];
-        $owner = $_SESSION['listowner'];
-        if($user == $owner){
-          echo "<form method='POST'> <input type='submit' name='addwants' value='Add cards'/> </form>";
-        }
       ?>
     </div>
 
     <div class="container list">
+      <div class="skrt">
+        <h1>Offers</h1>
+      
+        <?php
+          $user = $_SESSION['id'];
+          $owner = $_SESSION['listowner'];
+          if($user == $owner){
+            echo "<form method='POST'> <input type='submit' name='addtrades' value='Add cards'/> </form>";
+          }
+        ?>
+      </div>
+      
       <?php
         $id = $_SESSION['id'];
         $sql = "SELECT * FROM card INNER JOIN user_card ON card.id = user_card.card_id WHERE user_card.user_id = $id AND user_card.trading > 0;";
@@ -108,7 +129,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST")  {
         if($result->num_rows > 0){
       ?>
             
-          <h1>Offers</h1>
           <table>
               
             <?php
@@ -131,12 +151,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST")  {
       <?php
         } else{
           echo "You have no cards on your trading-list.";
-        }
-
-        $user = $_SESSION['id'];
-        $owner = $_SESSION['listowner'];
-        if($user == $owner){
-          echo "<form method='POST'> <input type='submit' name='addtrades' value='Add cards'/> </form>";
         }
       ?>
     </div>

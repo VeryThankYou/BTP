@@ -233,6 +233,7 @@ body {
 
 .list {
   width: 25em;
+  max-height: 32em;
 }
 
 .list h1 {
@@ -245,6 +246,7 @@ body {
 .list table {
   width: 100%;
   text-align: left;
+  overflow-y: scroll;
 }
 
 .list td {
@@ -261,4 +263,21 @@ body {
   color: #D8DED3;
   text-shadow: 0.034em 0.034em black;
   font-size: 18px;
+}
+
+.list input[type=submit] {
+  padding: 0.3em 0.3em;
+  font-size: 24px;
+  font-family: MagicFont;
+  background-color: #755292;
+  cursor: pointer;
+  border-width: 1px;
+  border-color: black;
+  text-shadow: 0.034em 0.034em #D8DED3;
+  border-radius: 0.25em;
+}
+
+.skrt {
+  display: flex;
+  justify-content: space-evenly;
 }
