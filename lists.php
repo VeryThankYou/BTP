@@ -26,9 +26,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST")  {
     $user = $_SESSION['id'];
     $owner = $_SESSION['listowner'];
     if($user == $owner){
-      header('location:main.php')
-    }else{
-      header('location:playgroup.php')
+      header('location:main.php');
+    } else{
+      header('location:playgroup.php');
     }
 
   }
