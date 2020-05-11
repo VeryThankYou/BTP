@@ -15,18 +15,18 @@ body {
 }
 
 .header {
-  font-size: 60px;
   background-color: #755292;
-  height: 0.9em;
-  padding: 0.034em;
+  height: 64px;
+  padding: 0.1em;
+  display: flex;
 }
 
 .title {
+  font-size: 60px;
   font-family: MagicFont;
   letter-spacing: 0.1em;
   color: #D8DED3;
   text-shadow: 0.034em 0.034em black;
-  display: inline-block;
 }
 
 .logout {
