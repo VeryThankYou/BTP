@@ -19,9 +19,18 @@ body {
   height: 64px;
   padding: 0.1em;
   display: flex;
+  justify-content: space-evenly;
 }
 
-.title {
+.header p{
+  font-size: 60px;
+  font-family: MagicFont;
+  letter-spacing: 0.1em;
+  color: #D8DED3;
+  text-shadow: 0.034em 0.034em black;
+}
+
+.header input[type=submit]{
   font-size: 60px;
   font-family: MagicFont;
   letter-spacing: 0.1em;

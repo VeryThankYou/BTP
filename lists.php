@@ -19,9 +19,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST")  {
   if(isset($_POST['addwants'])){
     $_SESSION['listtoadd'] = "wants";
     header('location:addcards.php');
+
   } else if(isset($_POST['addtrades'])){
     $_SESSION['listtoadd'] = "trades";
     header('location:addcards.php');
+
   } else if(isset($_POST['back'])){
     $user = $_SESSION['id'];
     $owner = $_SESSION['listowner'];
@@ -49,11 +51,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST")  {
 <body>
 
   <div class="header">  
-    <p class="title">BTP</p> 
+    <p>BTP</p> 
 
     <a href="index.php" class="logout">
         <p>Logout</p>
     </a>    
+
+    <form method="POST">
+      <input type='submit' name='back' value='Back'>
+    </form>
 
   </div>
 
@@ -156,10 +162,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST")  {
     </div>
 
 	</div>
-
-
-  <form method="POST">
-  <input type='submit' name='back' value='Back'>
 
 </body>
 </html>
