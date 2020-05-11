@@ -15,6 +15,16 @@ function userID($email, $conn){
   $row = mysqli_fetch_assoc($fetch);
   return $row['id'];
 }
+if($_SERVER["REQUEST_METHOD"] == "POST")  {
+  if(isset($_POST['addwants'])){
+    $_SESSION['listtoadd'] = "wants";
+    header('location:addcards.php');
+  } else if(isset($_POST['addtrades'])){
+    $_SESSION['listtoadd'] = "trades";
+    header('location:addcards.php');
+  }
+  }
+
 ?>
 
 <!DOCTYPE html>
@@ -32,7 +42,7 @@ function userID($email, $conn){
 	<div>
 
 			<?php
-        $id = $_SESSION['id'];
+        $id = $_SESSION['listowner'];
         $sql = "SELECT card.name FROM card INNER JOIN user_card ON card.id = user_card.card_id WHERE user_card.user_id = $id AND user_card.want > 0;";
         $result = $conn->query($sql);
         if($result->num_rows > 0){
@@ -59,9 +69,13 @@ function userID($email, $conn){
           </table>
           <?php
           } else{
-            echo "You have no cards on your wants-list.";
+            echo "You have no cards on your wants-list.\n";
           }
 
+          ?>
+          <input type='submit' name='addwants' value='Add cards'/>
+
+          <?php
 
           $id = $_SESSION['id'];
           $sql = "SELECT card.name FROM card INNER JOIN user_card ON card.id = user_card.card_id WHERE user_card.user_id = $id AND user_card.trading > 0;";
@@ -93,6 +107,7 @@ function userID($email, $conn){
               echo "You have no cards on your trading-list.";
             }
           ?>
+          <input type='submit' name='addtrades' value='Add cards'/>
         
 
 	</div>
