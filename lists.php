@@ -33,11 +33,20 @@ if($_SERVER["REQUEST_METHOD"] == "POST")  {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="css/main.css">
-  <title>Document</title>
+  <link rel="stylesheet" href="styling/maincss.css">
+  <title>Balduvian Trading Post</title>
 </head>
 
 <body>
+
+  <div class="header">  
+    <p class="title">BTP</p> 
+
+    <a href="index.php" class="logout">
+        <p>Logout</p>
+    </a>    
+
+  </div>
 
 	<div>
 
@@ -48,7 +57,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")  {
         if($result->num_rows > 0){
           ?>
         
-          <table class="listTable">
+          <table>
             <p>Wants</p>
           <?php
           // løb alle rækker igennem
@@ -83,7 +92,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")  {
           if($result->num_rows > 0){
             ?>
           
-            <table class="listTable">
+            <table>
               <p>Tradinglist</p>
             <?php
             // løb alle rækker igennem
