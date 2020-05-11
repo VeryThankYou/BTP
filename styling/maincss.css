@@ -26,7 +26,7 @@ body {
   letter-spacing: 0.1em;
   color: #D8DED3;
   text-shadow: 0.034em 0.034em black;
-  float: left;
+  display: inline-block;
 }
 
 .logout {
@@ -152,11 +152,11 @@ body {
   text-align: center;
   display: flex;
   padding-top: 5em;
+  justify-content: space-evenly;
 }
 
 .mcGroup {
   width: 40em;
-  margin-right: 2em;
 }
 
 .mcList{
@@ -222,4 +222,43 @@ body {
 
 .stuff div {
   display: inline-block;
+}
+
+.mainList {
+  text-align: center;
+  padding-top: 5em; 
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.list {
+  width: 25em;
+}
+
+.list h1 {
+  font-size: 48px;
+  text-shadow: 0.034em 0.034em #D8DED3;
+  font-family: MagicFont;
+  text-align: center;
+}
+
+.list table {
+  width: 100%;
+  text-align: left;
+}
+
+.list td {
+  padding-left: 3em;
+  border-bottom: 1px solid black;
+  color: #D8DED3;
+  text-shadow: 0.034em 0.034em black;
+  font-size: 18px;
+}
+
+.list th {
+  padding-left: 0.4em;
+  border-bottom: 1px solid black;
+  color: #D8DED3;
+  text-shadow: 0.034em 0.034em black;
+  font-size: 18px;
 }

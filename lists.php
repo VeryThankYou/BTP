@@ -57,86 +57,95 @@ if($_SERVER["REQUEST_METHOD"] == "POST")  {
 
   </div>
 
-	<div>
+	<div class="mainList">
+    <div class="container list">
 
-			<?php
+      <?php
         $id = $_SESSION['listowner'];
-        $sql = "SELECT card.name FROM card INNER JOIN user_card ON card.id = user_card.card_id WHERE user_card.user_id = $id AND user_card.want > 0;";
+        $sql = "SELECT * FROM card INNER JOIN user_card ON card.id = user_card.card_id WHERE user_card.user_id = $id AND user_card.want > 0;";
         $result = $conn->query($sql);
         if($result->num_rows > 0){
-          ?>
-        
+      ?>
+          <h1>Wants</h1>
           <table>
-            <p>Wants</p>
-          <?php
-          // løb alle rækker igennem
-          while($row = $result->fetch_assoc()) {
-          ?>
+            
               
+            <?php
+              while($row = $result->fetch_assoc()) {
+            ?>
+            
               <?php
                 $name = $row['name'];
                 $num = $row['want'];
                 echo "<tr>";
-                echo "<th>$num</th><th>$name</th>";
+                echo "<th>$num</th><td>$name</td>";
                 echo "</tr>";
 
               ?>
-          <?php
-          }
-          ?>
-          </table>
-          <?php
-          } else{
-            echo "You have no cards on your wants-list.\n";
-          }
-          $user = $_SESSION['id'];
-          $owner = $_SESSION['listowner'];
-          if($user == $owner){
-          echo "<form method='POST'> <input type='submit' name='addwants' value='Add cards'/> </form>";
-          }
-
-          $id = $_SESSION['id'];
-          $sql = "SELECT card.name FROM card INNER JOIN user_card ON card.id = user_card.card_id WHERE user_card.user_id = $id AND user_card.trading > 0;";
-          $result = $conn->query($sql);
-          if($result->num_rows > 0){
-            ?>
-          
-            <table>
-              <p>Tradinglist</p>
             <?php
-            // løb alle rækker igennem
-            while($row = $result->fetch_assoc()) {
+            }
+            ?>
+
+          </table>
+
+      <?php
+        } else{
+          echo "You have no cards on your wants-list.\n";
+        }
+        $user = $_SESSION['id'];
+        $owner = $_SESSION['listowner'];
+        if($user == $owner){
+          echo "<form method='POST'> <input type='submit' name='addwants' value='Add cards'/> </form>";
+        }
+      ?>
+    </div>
+
+    <div class="container list">
+      <?php
+        $id = $_SESSION['id'];
+        $sql = "SELECT * FROM card INNER JOIN user_card ON card.id = user_card.card_id WHERE user_card.user_id = $id AND user_card.trading > 0;";
+        $result = $conn->query($sql);
+        if($result->num_rows > 0){
+      ?>
+            
+          <h1>Offers</h1>
+          <table>
+              
+            <?php
+              while($row = $result->fetch_assoc()) {
             ?>
                 
-                <?php
-                  $name = $row['name'];
-                  $num = $row['trading'];
-                  echo "<tr>";
-                  echo "<th>$num</th><th>$name</th>";
-                  echo "</tr>";
-  
-                ?>
+              <?php
+                $name = $row['name'];
+                $num = $row['trading'];
+                echo "<tr>";
+                echo "<th>$num</th><td>$name</td>";
+                echo "</tr>";
+              ?>
+
             <?php
             }
             ?>
-            </table>
-            <?php
-            } else{
-              echo "You have no cards on your trading-list.";
-            }
+          </table>
 
-            $user = $_SESSION['id'];
-            $owner = $_SESSION['listowner'];
-            if($user == $owner){
-            echo "<form method='POST'> <input type='submit' name='addtrades' value='Add cards'/> </form>";
-            }
-          ?>
-          
-          <form method="POST">
-          <input type='submit' name='back' value='Back'>
-        
+      <?php
+        } else{
+          echo "You have no cards on your trading-list.";
+        }
+
+        $user = $_SESSION['id'];
+        $owner = $_SESSION['listowner'];
+        if($user == $owner){
+          echo "<form method='POST'> <input type='submit' name='addtrades' value='Add cards'/> </form>";
+        }
+      ?>
+    </div>
 
 	</div>
+
+
+  <form method="POST">
+  <input type='submit' name='back' value='Back'>
 
 </body>
 </html>
