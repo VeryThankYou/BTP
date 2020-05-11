@@ -22,6 +22,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST")  {
   } else if(isset($_POST['addtrades'])){
     $_SESSION['listtoadd'] = "trades";
     header('location:addcards.php');
+  } else if(isset($_POST['back'])){
+    $user = $_SESSION['id'];
+    $owner = $_SESSION['listowner'];
+    if($user == $owner){
+      header('location:main.php');
+    } else{
+      header('location:playgroup.php');
+    }
+
   }
   }
 
@@ -80,11 +89,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST")  {
           } else{
             echo "You have no cards on your wants-list.\n";
           }
-
-          ?>
-          <input type='submit' name='addwants' value='Add cards'/>
-
-          <?php
+          $user = $_SESSION['id'];
+          $owner = $_SESSION['listowner'];
+          if($user == $owner){
+          echo "<form method='POST'> <input type='submit' name='addwants' value='Add cards'/> </form>";
+          }
 
           $id = $_SESSION['id'];
           $sql = "SELECT card.name FROM card INNER JOIN user_card ON card.id = user_card.card_id WHERE user_card.user_id = $id AND user_card.trading > 0;";
@@ -115,8 +124,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST")  {
             } else{
               echo "You have no cards on your trading-list.";
             }
+
+            $user = $_SESSION['id'];
+            $owner = $_SESSION['listowner'];
+            if($user == $owner){
+            echo "<form method='POST'> <input type='submit' name='addtrades' value='Add cards'/> </form>";
+            }
           ?>
-          <input type='submit' name='addtrades' value='Add cards'/>
+          
+          <form method="POST">
+          <input type='submit' name='back' value='Back'>
         
 
 	</div>
