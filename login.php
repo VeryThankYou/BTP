@@ -67,16 +67,20 @@ if(!empty( $_POST['email'] ) && !empty( $_POST['pw'] )) {
 
         <tr>
           <th>Email: <br/></th>
+        </tr>
+        <tr>
           <th><input type="text" name="email" placeholder="Enter email" required/></th>
         </tr>
 
         <tr>
           <th>Password: <br/></th>
+        </tr>
+        <tr>
           <th><input type="password" name="pw" placeholder="Password" required  /></th>
         </tr>
 
         <tr>
-          <th colspan="2"><input type="submit" value="Login" /> </th>
+          <th><input type="submit" value="Login" /> </th>
         </tr>
 
       </table>
