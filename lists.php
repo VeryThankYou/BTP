@@ -59,6 +59,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")  {
 
     <div class="header_right">
       <a href="index.php">
+
         <p>Logout</p>
       </a>
     </div>
@@ -91,7 +92,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")  {
 
 
           <table>
-            
+
               
             <?php
               while($row = $result->fetch_assoc()) {
@@ -128,6 +129,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")  {
           if($user == $owner){
             echo "<form method='POST'> <input type='submit' name='addtrades' value='Add cards'/> </form>";
           }
+
         ?>
       </div>
       
@@ -139,7 +141,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")  {
       ?>
             
           <table>
-              
+
             <?php
               while($row = $result->fetch_assoc()) {
             ?>
