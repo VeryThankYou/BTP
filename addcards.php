@@ -31,8 +31,39 @@ if($_SERVER["REQUEST_METHOD"] == "POST")  {
     if(isset($_POST['back'])){
         header("location:lists.php");
     } else if(isset($_POST['expset'])){
-        $_SESSION['expset'] = $_POST['name'];
-        header("location:cardsbyexp.php");
+        $expset = $_POST['name'];
+        $sql = "SELECT * FROM card WHERE expset='$expset';";
+        $result = $conn->query($sql);
+
+    } else if(isset($_POST['sea'])){
+      $term = $_POST['search'];
+      $sql = "SELECT * FROM card WHERE name LIKE '%$term%';";
+      $result = $conn->query($sql);
+    } else if(isset($_POST['add'])){
+      $userid = $_SESSION['id'];
+      $cardid = $_POST['addid'];
+      $numcards = $_POST['num'];
+      $list = $_SESSION['listtoadd'];
+      echo "$list";
+      $sql = "SELECT * FROM user_card WHERE user_id='$userid' AND card_id='$cardid';";
+      $result = $conn->query($sql);
+      if($result->num_rows < 1){
+        if($list=="wants"){
+          $sql = "INSERT INTO user_card (card_id, user_id, want) VALUES ('$cardid', '$userid', '$numcards');";
+          $conn->query($sql);
+        } else if($list=="trades"){
+          $sql = "INSERT INTO user_card (card_id, user_id, trading) VALUES ('$cardid', '$userid', '$numcards');";
+          $conn->query($sql);
+        }
+      } else{
+        if($list=="wants"){
+          $sql = "UPDATE user_card SET want='$numcards;";
+          $conn->query($sql);
+        } else if($list=="trades"){
+          $sql = "UPDATE user_card SET trading='$numcards;";
+          $conn->query($sql);
+        }
+      }
     }
 }
 
@@ -47,18 +78,48 @@ if($_SERVER["REQUEST_METHOD"] == "POST")  {
   <title>Document</title>
 </head>
 <body>
+<div>
+<form method="POST">
+<input type="text" name="search" placeholder="Search" />
+<input type="submit" name="sea" value="Search" />
+</form>
+</div>
 <div class="dropdown">
   <button class="dropbtn">Dropdown</button>
   <div class="dropdown-content">
     <?php
     $sql = "SELECT DISTINCT expset FROM card ORDER BY expset ASC;";
-    $result = $conn->query($sql);
-    while($row = $result->fetch_assoc()) {
+    $result2 = $conn->query($sql);
+    while($row = $result2->fetch_assoc()) {
         echo "<form method='POST'> <input type='submit' name='expset' value='" . $row['expset'] . "'/> <input type='hidden' name='name' value='" . $row['expset'] . "'/> </form>";
     }
     ?>
   </div>
 </div>
+<?php
+if(isset($result) and $result->num_rows > 0){
+  ?>
+<div>
+<p> Results: </p>
+  <?php
+   while($row = $result->fetch_assoc()) {
+    ?>
+      <div class="project">
+        
+        <?php
+          $name = $row['name'];
+          $expset = $row['expset'];
+          $id = $row['id'];
+          echo "<h1>$name</h1> <h2>$expset</h2><form method='POST'> <input type='number' name='num'/> <input type='submit' name='add' value='Add card' /><input type='hidden' value='$id' name='addid'/></form></div>";
+          ?>
+      </div>
+<?php
+}
+?>
+</div>
+<?php
+}
+?>
 <form method="POST">
 <input type='submit' name='back' value='Back'/>
 </form>
