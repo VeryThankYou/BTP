@@ -59,7 +59,7 @@ $id = $_SESSION['id'];
 if($id == $creator){
   echo "<form method='POST'> <input type='text' name='playname' placeholder='Write name here'/> <input type='submit' name='changename' value='Change playgroup name'/> </form>";
 }
-$sql = "SELECT * FROM user INNER JOIN user_project ON user.id=user_project.user_id WHERE user_project.project_id='$playgroupid';";
+$sql = "SELECT * FROM user INNER JOIN user_playgroup ON user.id=user_playgroup.user_id WHERE user_playgroup.playgroup_id='$playgroupid';";
 $result = $conn->query($sql);
 if($result->num_rows > 0){
 
@@ -74,7 +74,7 @@ if($result->num_rows > 0){
           echo "<p>$name</p>";
           
     }
-    
+  }
 ?>
 
 <form method='POST'>
