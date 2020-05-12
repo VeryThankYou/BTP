@@ -31,6 +31,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")  {
       $conn->query($sql);
     } else if(isset($_POST['back'])){
       header("location:main.php");
+    } else if(isset($_POST['viewlists'])){
+      $_SESSION['listowner'] = $_POST['userid'];
+      header("location:lists.php");
+    } else if(isset($_POST['msg'])){
+      $_SESSION['msg'] = $_POST['userid'];
     }
 
 }
@@ -70,8 +75,10 @@ if($result->num_rows > 0){
 
         <?php
           $name = $row['displayname'];
-          $id = $row['id'];
-          echo "<p>$name</p>";
+          $uid = $row['id'];
+          if($uid != $id){
+            echo "<p>$name</p> <form method='POST'> <input type='submit' name='viewlists' value='View lists'/> <input type='submit' name='msg' value='Message'/> <input type='hidden' name='userid' value='$uid'/> </form>";
+          }
           
     }
   }

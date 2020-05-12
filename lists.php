@@ -131,7 +131,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")  {
       </div>
       
       <?php
-        $id = $_SESSION['id'];
+        $id = $_SESSION['listowner'];
         $sql = "SELECT * FROM card INNER JOIN user_card ON card.id = user_card.card_id WHERE user_card.user_id = $id AND user_card.trading > 0;";
         $result = $conn->query($sql);
         if($result->num_rows > 0){
