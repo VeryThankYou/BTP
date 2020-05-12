@@ -81,8 +81,10 @@ function openAuth() {
 
 <body>
     <div class="header">
-        <p class="title">BTP</p> 
-    </div>  
+      <div class="header_left">
+        <p>BTP</p> 
+      </div>
+    </div>
     
     <div class="container input">
     <form method="POST">

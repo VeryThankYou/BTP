@@ -56,7 +56,9 @@ if(!empty( $_POST['email'] ) && !empty( $_POST['pw'] )) {
 
 <body>
     <div class="header">
-        <p class="title">BTP</p> 
+      <div class="header_left">
+          <p>BTP</p> 
+      </div>
     </div>
     
 
