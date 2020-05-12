@@ -290,3 +290,47 @@ body {
   display: flex;
   justify-content: space-evenly;
 }
+
+.knap input[type=submit] {
+  padding: 0.3em 0.3em;
+  font-size: 24px;
+  font-family: MagicFont;
+  background-color: #755292;
+  cursor: pointer;
+  border-width: 1px;
+  border-color: black;
+  text-shadow: 0.034em 0.034em #D8DED3;
+  border-radius: 0.25em;
+}
+
+.saet {
+  overflow-y: scroll;
+  max-height: 32em;
+  width: 25em;
+}
+
+.soeg {
+  width: 25em;
+}
+
+.soeg input[type=submit] {
+  padding: 0.3em 0.3em;
+  font-size: 24px;
+  font-family: MagicFont;
+  background-color: #755292;
+  cursor: pointer;
+  border-width: 1px;
+  border-color: black;
+  text-shadow: 0.034em 0.034em #D8DED3;
+  border-radius: 0.25em;
+}
+
+.soeg input[type=text] {
+  padding: 0.3em 0.3em;
+  font-size: 24px;
+  font-family: MagicFont;
+  border-width: 1px;
+  border-color: black;
+  text-shadow: 0.034em 0.034em #D8DED3;
+  border-radius: 0.25em;
+}
