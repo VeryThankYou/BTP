@@ -1,14 +1,3 @@
-<script>
-function dropdown() {
-  var x = document.getElementById("myDropdown");
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else{
-    x.style.display = "none";
-  }
-}
-
-</script>
 <?php
 session_start();
 //This file has our connection to our database
