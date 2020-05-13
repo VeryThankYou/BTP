@@ -46,7 +46,15 @@ function userID($email, $conn){
   </div>
 
   <div style="clear:both;"></div>
+  <?php
+  $list = $_SESSION['mutual'];
+  if($list == "want"){
+      echo "<h2> This is a list of cards that you want that your playgroup have </h2>";
+  } else if($list == "trade"){
+      echo "<h2> This is a list of cards that you have that your playgroup want </h2>";
+  }
 
+  ?>
 
 </body>
 </html>
