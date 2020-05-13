@@ -41,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")  {
       $_SESSION['mutuallist'] = "want";
       header("location:mutual.php");
     } else if(isset($_POST['mutualtrade'])){
-      $_SESSION['mutuallist'] = "want";
+      $_SESSION['mutuallist'] = "trade";
       header("location:mutual.php");
     }
 
