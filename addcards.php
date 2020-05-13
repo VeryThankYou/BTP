@@ -17,13 +17,14 @@ function userID($email, $conn){
 }
 
 if($_SERVER["REQUEST_METHOD"] == "POST")  {
-    if(isset($_POST['back'])){
+    if(isset($_POST['home'])){
+        header("location:main.php");
+    } else if(isset($_POST['back'])){
         header("location:lists.php");
     } else if(isset($_POST['expset'])){
         $expset = $_POST['name'];
         $sql = "SELECT * FROM card WHERE expset='$expset';";
         $result = $conn->query($sql);
-
     } else if(isset($_POST['sea'])){
       $term = $_POST['search'];
       $sql = "SELECT * FROM card WHERE name LIKE '%$term%';";
@@ -70,7 +71,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")  {
   <div class="header">
     <div class="header_left">
       <form method="POST">
-        <input type='submit' name='back' value='BTP'>
+        <input type='submit' name='home' value='BTP'>
       </form>
     </div>
 

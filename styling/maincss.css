@@ -369,3 +369,74 @@ body {
 .soeg h2{
   color: #D8DED3;
 }
+
+.friends{
+  width: 32em;
+}
+
+.friends h1{
+  font-size: 60px;
+  font-family: MagicFont;
+  letter-spacing: 0.1em;
+  color: black;
+  text-shadow: 0.034em 0.034em #D8DED3;  
+}
+
+.friends p{
+  font-size: 24px;
+  font-family: MagicFont;
+  letter-spacing: 0.1em;
+  color: #D8DED3;
+  text-shadow: 0.034em 0.034em black;  
+}
+
+.other {
+  width: 24em;
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+}
+
+.other table{
+  width: 100%;
+}
+
+.other p{
+  font-size: 32px;
+  font-family: MagicFont;
+  letter-spacing: 0.1em;
+  color: black;
+  text-shadow: 0.034em 0.034em #D8DED3;  
+}
+
+.other input[type=submit] {
+  padding: 0.3em 0.3em;
+  font-size: 24px;
+  font-family: MagicFont;
+  background-color: #755292;
+  cursor: pointer;
+  border-width: 1px;
+  border-color: black;
+  text-shadow: 0.034em 0.034em #D8DED3;
+  border-radius: 0.25em;
+}
+
+.other input[type=text] {
+  padding: 0.3em 0.3em;
+  font-size: 24px;
+  font-family: MagicFont;
+  border-width: 1px;
+  border-color: black;
+  text-shadow: 0.034em 0.034em #D8DED3;
+  border-radius: 0.25em;
+}
+
+.other input[type=email] {
+  padding: 0.3em 0.3em;
+  font-size: 24px;
+  /* font-family: MagicFont; */
+  border-width: 1px;
+  border-color: black;
+  text-shadow: 0.034em 0.034em #D8DED3;
+  border-radius: 0.25em;
+}
