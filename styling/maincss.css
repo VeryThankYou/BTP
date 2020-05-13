@@ -506,3 +506,57 @@ body {
   color: #D8DED3;
   text-shadow: 0.034em 0.034em black;
 }
+
+.beskedBoks{
+  width: 32em;
+  max-height: 32em;
+  overflow-y: hidden;
+}
+
+.beskedBoks h1{
+  font-size: 32px;
+  font-family: MagicFont;
+  color: black;
+  text-shadow: 0.034em 0.034em #D8DED3;
+}
+
+.beskedBoks input[type=submit] {
+  padding: 0.3em 0.3em;
+  font-size: 24px;
+  font-family: MagicFont;
+  background-color: #755292;
+  cursor: pointer;
+  border-width: 1px;
+  border-color: black;
+  text-shadow: 0.034em 0.034em #D8DED3;
+  border-radius: 0.25em;
+}
+
+.beskedBoks input[type=text] {
+  padding: 0.3em 0.3em;
+  font-size: 24px;
+  border-width: 1px;
+  border-color: black;
+  text-shadow: 0.034em 0.034em #D8DED3;
+  border-radius: 0.25em;
+}
+
+.beskedBoks p{
+  color: #D8DED3;
+  text-shadow: 0.034em 0.034em black;
+}
+
+.send {
+  float: right;
+  width: 60%;
+}
+
+.receive {
+  float: left;
+  width: 60%;
+}
+
+.beskeder {
+  overflow-y:scroll;
+  height: 26em;
+}

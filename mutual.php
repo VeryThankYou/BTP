@@ -18,7 +18,9 @@ function userID($email, $conn){
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     if(isset($_POST['back'])){
-        header("location:playgroup.php");
+      header("location:playgroup.php");
+    } else if(isset($_POST['home'])){
+      header("location:main.php");
     }
 }
 
@@ -38,7 +40,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
   <div class="header">
     <div class="header_left">
       <form method="POST">
-        <input type='submit' name='back' value='BTP'>
+        <input type='submit' name='home' value='BTP'>
       </form>
     </div>
 
