@@ -81,8 +81,10 @@ function openAuth() {
 
 <body>
     <div class="header">
-        <p class="title">BTP</p> 
-    </div>  
+      <div class="header_left">
+        <p>BTP</p> 
+      </div>
+    </div>
     
     <div class="container input">
     <form method="POST">
@@ -93,44 +95,58 @@ function openAuth() {
     
           <tr>
             <th>Email: <br></th>
-            <th><input type="email" name="email" placeholder="Enter email" <?php if(isset($email)){echo 'value='.$email;}?> required></th>
           </tr>
       
           <tr>
+            <th><input type="email" name="email" placeholder="Enter email" <?php if(isset($email)){echo 'value='.$email;}?> required></th>
+          </tr>
+
+
+          <tr>
             <th>Display Name: <br></th>
+          </tr>
+
+          <tr>  
             <th><input type="text" name="dispname" placeholder="Display Name" <?php if(isset($displayname)){echo 'value='.$displayname;}?> required></th>
           </tr>
       
+
           <tr>
             <th>Password: <br></th>
-            <th><input type="password" name="password" placeholder="Password" <?php if(isset($password)){echo 'value='.$password;}?> required></th>
           </tr>
 
           <tr>
-            <th colspan="2"><input type="submit" value="Create" name="createUser" /> </th>
+            <th><input type="password" name="password" placeholder="Password" <?php if(isset($password)){echo 'value='.$password;}?> required></th>
+          </tr>
+
+
+          <tr>
+            <th><input type="submit" value="Create" name="createUser" /> </th>
           </tr>
       
       </table>
     </form>
     </div>
 
+
     <div class="container auth" id="authDiv" style="display:none;">
       <form method="POST">
+
 
           <p>Authentication key:<br></p>
           <input type="text" name="auth" placeholder="0000" required>
 
-          <input type="submit" name="check" value="Authenticate User">
+          <input type="submit" name="check" value="Authenticate">
 
           <input type="hidden" name="hiddenPassword" <?php if(isset($password)){echo 'value='.$password;}?> >
           <input type="hidden" name="hiddenDispname" <?php if(isset($displayname)){echo 'value='.$displayname;}?> >
           <input type="hidden" name="hiddenEmail" <?php if(isset($email)){echo 'value='.$email;}?> > 
-      
+      </form>
     </div>
   
 
   <div class="container navi">
-    <button class="switch_regIn" type="button" onclick="window.location.href='login.php'" name="btnCancel">Login</button>  
+    <button type="button" onclick="window.location.href='login.php'" name="btnCancel">Go to Login</button>  
   </div>
 </body>
 

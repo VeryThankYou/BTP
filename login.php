@@ -4,6 +4,14 @@ session_start();
 //Connect to our database
 include('config.php');
 
+function userID($email, $conn){
+  $sql = "SELECT id FROM user WHERE email='$email';";
+  $result = $conn->query($sql);
+  $fetch = $result;
+  $row = mysqli_fetch_assoc($fetch);
+  return $row['id'];
+}
+
 //Variables for checking login are created
 $email="";
 $pw="";
@@ -30,6 +38,7 @@ if(!empty( $_POST['email'] ) && !empty( $_POST['pw'] )) {
   if($email == $cemail && password_verify($pw, $cpw) == true) {
     //The mail is saved as a session-variable
     $_SESSION['email'] = $email;
+    $_SESSION['id'] = userID($email, $conn);
     //Redirects to main.php
     header('location:main.php');
   }
@@ -47,7 +56,9 @@ if(!empty( $_POST['email'] ) && !empty( $_POST['pw'] )) {
 
 <body>
     <div class="header">
-        <p class="title">BTP</p> 
+      <div class="header_left">
+          <p>BTP</p> 
+      </div>
     </div>
     
 
@@ -58,16 +69,20 @@ if(!empty( $_POST['email'] ) && !empty( $_POST['pw'] )) {
 
         <tr>
           <th>Email: <br/></th>
+        </tr>
+        <tr>
           <th><input type="text" name="email" placeholder="Enter email" required/></th>
         </tr>
 
         <tr>
           <th>Password: <br/></th>
+        </tr>
+        <tr>
           <th><input type="password" name="pw" placeholder="Password" required  /></th>
         </tr>
 
         <tr>
-          <th colspan="2"><input type="submit" value="Login" /> </th>
+          <th><input type="submit" value="Login" /> </th>
         </tr>
 
       </table>
@@ -75,7 +90,7 @@ if(!empty( $_POST['email'] ) && !empty( $_POST['pw'] )) {
   </div>
 
   <div class="container navi">
-    <button type="button" onclick="window.location.href='register.php'" name="btnCancel">Register</button>  
+    <button type="button" onclick="window.location.href='register.php'" name="btnCancel">Go to Register</button>  
   </div>
 
 </body>

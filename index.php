@@ -27,8 +27,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
+    
     <div class="header">
-        <p class="title">BTP</p> 
+        <div class="header_left">
+            <p>BTP</p> 
+        </div>
     </div>
     
     <div class="container input">
