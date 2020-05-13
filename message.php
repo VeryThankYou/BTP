@@ -8,14 +8,37 @@ if(!isset($_SESSION['id'])){
   header('location: index.php');  
 }
 
-function userID($email, $conn){
-  $sql = "SELECT id FROM user WHERE email='$email';";
+function userEmail($userid, $conn){
+  $sql = "SELECT email FROM user WHERE id='$userid';";
   $result = $conn->query($sql);
   $fetch = $result;
   $row = mysqli_fetch_assoc($fetch);
-  return $row['id'];
+  return $row['email'];
 }
 
+function displayName($userid, $conn){
+  $sql = "SELECT displayname FROM user WHERE id='$userid';";
+  $result = $conn->query($sql);
+  $fetch = $result;
+  $row = mysqli_fetch_assoc($fetch);
+  return $row['displayname'];
+}
+
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+  if(isset($_POST['send'])){
+    $msgtext = $_POST['msgtxt'];
+    $myid = $_SESSION['id'];
+    $receiverid = $_SESSION['msg'];
+    $sql = "INSERT INTO message (text, receiver_user_id, sender_user_id) VALUES ('$msgtext', '$receiverid', '$myid');";
+    $conn->query($sql);
+    $email = userEmail($receiverid, $conn);
+    $recname = displayName($receiverid, $conn);
+    $myname = displayName($myid, $conn);
+    $msg = "Hi $recname, \n\nYou have a new message on Balduvian Trading Post from $myname. They hope to hear from you soon!\n\nBest regards,\nThe Balduvian Trading Post Team";
+    $msg = wordwrap($msg, 70);
+    mail($email, 'New message', $msg);
+  }
+}
 
 ?>
 
@@ -47,4 +70,33 @@ function userID($email, $conn){
   </div>
 
   <div style="clear:both;"></div>
-  </html>
+
+  <?php
+  $myid = $_SESSION['id'];
+  $friendid = $_SESSION['msg'];
+  $friendname = displayName($friendid, $conn);
+  echo "<div> Messages with $friendname </div>";
+  $sql = "SELECT * FROM message WHERE (receiver_user_id='$myid' AND sender_user_id='$friendid') OR (receiver_user_id='$friendid' AND sender_user_id='$myid');";
+  $result = $conn->query($sql);
+  if($result->num_rows > 0){
+    while($row = $result->fetch_assoc()){
+      $sender = $row['sender_user_id'];
+      $receiver = $row['receiver_user_id'];
+      $msg = $row['text'];
+      $datetime = $row['time'];
+      $meid = $_SESSION['id'];
+      if($meid == $sender){
+        echo "<div class='navngiv din klasse william'>$msg <br> $datetime </div>";
+      } else{
+        echo "<div class='navngiv din anden klasse william'>$msg <br> $datetime </div>";
+      }
+    }
+  }
+  ?>
+<form method='POST'>
+<input type='text' name='msgtxt' placeholder='Write your message here...'/>
+<input type='submit' name='send' value='send'/>
+</form>
+
+</body>
+</html>
