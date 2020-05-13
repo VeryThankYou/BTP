@@ -103,7 +103,19 @@ if($_SERVER["REQUEST_METHOD"] == "POST")  {
 
                 ?>
               <?php
-              }
+                $name = $row['name'];
+                $num = $row['want'];
+                echo "<tr>";
+                echo "<th>$num</th><td>$name</td>";
+                $user = $_SESSION['id'];
+                $owner = $_SESSION['listowner'];
+                $cid = $row['card_id'];
+                if($user == $owner){
+                  echo "hhhhh";
+                  echo "<td><form method='POST'> <input='submit' name='dltwa' value='Delete'/> <input type='hidden' name='dltid' value='$cid'/> </form></td>";
+                }
+                echo "</tr>";
+
               ?>
 
             </table>
@@ -139,7 +151,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST")  {
             <table>
 
               <?php
-                while($row = $result->fetch_assoc()) {
+                $name = $row['name'];
+                $num = $row['trading'];
+                echo "<tr>";
+                echo "<th>$num</th><td>$name</td>";
+                $user = $_SESSION['id'];
+                $owner = $_SESSION['listowner'];
+                $cid = $row['card_id'];
+                if($user == $owner){
+                  echo "hhhhh";
+                  echo "<td><form method='POST'> <input='submit' name='dlttr' value='Delete'/> <input type='hidden' name='dltid' value='$cid'/> </form></td>";
+                }
+                echo "</tr>";
               ?>
                   
                 <?php
