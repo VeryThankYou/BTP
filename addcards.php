@@ -44,14 +44,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST")  {
           $sql = "INSERT INTO user_card (card_id, user_id, trading) VALUES ('$cardid', '$userid', '$numcards');";
           $conn->query($sql);
         }
+        unset($result);
       } else{
         if($list=="wants"){
-          $sql = "UPDATE user_card SET want='$numcards;";
+          $sql = "UPDATE user_card SET want='$numcards';";
           $conn->query($sql);
         } else if($list=="trades"){
-          $sql = "UPDATE user_card SET trading='$numcards;";
+          $sql = "UPDATE user_card SET trading='$numcards';";
           $conn->query($sql);
         }
+        unset($result);
       }
     }
 }
