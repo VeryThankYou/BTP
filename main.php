@@ -64,15 +64,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")  {
 
 <body>
   <div class="header">
-    
-    <p class="title">BTP</p> 
+    <div class="header_left">
+      <form method="POST">
+        <input type='submit' name='back' value='BTP'>
+      </form>
+    </div>
 
-    <a href="index.php" class="logout">
+    <div class="header_right">
+      <a href="index.php">
         <p>Logout</p>
-    </a>    
+      </a>
+    </div>
+ </div>
 
-  </div>
-
+ <div style="clear:both;"></div>
 
   <div class="mainCon">
     <div class="container mcGroup">

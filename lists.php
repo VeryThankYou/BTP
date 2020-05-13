@@ -50,19 +50,22 @@ if($_SERVER["REQUEST_METHOD"] == "POST")  {
 
 <body>
 
-  <div class="header">  
-    <p>BTP</p> 
+  <div class="header">
+    <div class="header_left">
+      <form method="POST">
+        <input type='submit' name='back' value='BTP'>
+      </form>
+    </div>
 
+    <div class="header_right">
+      <a href="index.php">
 
-    <a href="index.php" class="logout">
         <p>Logout</p>
-    </a>    
-
-    <form method="POST">
-      <input type='submit' name='back' value='Back'>
-    </form>
-
+      </a>
+    </div>
   </div>
+
+  <div style="clear:both;"></div>
 
 	<div class="mainList">
     <div class="container list">

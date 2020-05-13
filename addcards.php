@@ -44,7 +44,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST")  {
       $cardid = $_POST['addid'];
       $numcards = $_POST['num'];
       $list = $_SESSION['listtoadd'];
-      echo "$list";
       $sql = "SELECT * FROM user_card WHERE user_id='$userid' AND card_id='$cardid';";
       $result = $conn->query($sql);
       if($result->num_rows < 1){
@@ -75,53 +74,75 @@ if($_SERVER["REQUEST_METHOD"] == "POST")  {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="styling/maincss.css">
-  <title>Document</title>
+  <title>Balduvian Trading Post</title>
 </head>
 <body>
-<div>
-<form method="POST">
-<input type="text" name="search" placeholder="Search" />
-<input type="submit" name="sea" value="Search" />
-</form>
-</div>
-<div class="dropdown">
-  <button class="dropbtn">Dropdown</button>
-  <div class="dropdown-content">
-    <?php
-    $sql = "SELECT DISTINCT expset FROM card ORDER BY expset ASC;";
-    $result2 = $conn->query($sql);
-    while($row = $result2->fetch_assoc()) {
-        echo "<form method='POST'> <input type='submit' name='expset' value='" . $row['expset'] . "'/> <input type='hidden' name='name' value='" . $row['expset'] . "'/> </form>";
-    }
-    ?>
+
+  <div class="header">
+    <div class="header_left">
+      <form method="POST">
+        <input type='submit' name='back' value='BTP'>
+      </form>
+    </div>
+
+    <div class="header_right">
+      <a href="index.php">
+        <p>Logout</p>
+      </a>
+    </div>
   </div>
-</div>
-<?php
-if(isset($result) and $result->num_rows > 0){
-  ?>
-<div>
-<p> Results: </p>
-  <?php
-   while($row = $result->fetch_assoc()) {
-    ?>
-      <div class="project">
-        
-        <?php
-          $name = $row['name'];
-          $expset = $row['expset'];
-          $id = $row['id'];
-          echo "<h1>$name</h1> <h2>$expset</h2><form method='POST'> <input type='number' name='num'/> <input type='submit' name='add' value='Add card' /><input type='hidden' value='$id' name='addid'/></form></div>";
-          ?>
+
+  <div style="clear:both;"></div>
+  <form method="POST" class="knap">
+    <input type='submit' name='back' value='Back'/>
+  </form>
+
+  <div class="mainCon">
+
+    <div class="container soeg">
+      <div>
+        <form method="POST">
+          <input type="text" name="search" placeholder="Card name" />
+          <input type="submit" name="sea" value="Search" />
+        </form>
       </div>
-<?php
-}
-?>
-</div>
-<?php
-}
-?>
-<form method="POST">
-<input type='submit' name='back' value='Back'/>
-</form>
+
+      <?php
+        if(isset($result) and $result->num_rows > 0){
+      ?>
+      <div>
+        <p>Results:</p>
+        <?php
+          while($row = $result->fetch_assoc()) {
+        ?>
+            <div>  
+            <?php
+              $name = $row['name'];
+              $expset = $row['expset'];
+              $id = $row['id'];
+              echo "<h1>$name</h1> <h2>$expset</h2><form method='POST'> <input type='number' name='num'/> <input type='submit' name='add' value='Add card' /><input type='hidden' value='$id' name='addid'/></form>";
+            ?>
+
+            </div>
+        <?php
+          }
+        ?>
+      </div> 
+      <?php
+        }
+      ?>
+    </div>
+  
+    <div class="container saet">
+      <?php
+        $sql = "SELECT DISTINCT expset FROM card ORDER BY expset ASC;";
+        $result2 = $conn->query($sql);
+        while($row = $result2->fetch_assoc()) {
+          echo "<form method='POST'> <input type='submit' name='expset' value='" . $row['expset'] . "'/> <input type='hidden' name='name' value='" . $row['expset'] . "'/> </form>";
+        }
+      ?>
+    </div>
+  </div>
+
 </body>
 </html>
