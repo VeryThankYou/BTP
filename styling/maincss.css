@@ -150,6 +150,33 @@ body {
   cursor: pointer;
 }
 
+.input input[type=email] {
+  padding: 0.2em 0.3em;
+  font-size: 24px;
+  border-width: 1px;
+  border-color: black;
+  text-shadow: 0.034em 0.034em #D8DED3;
+  border-radius: 0.25em;
+}
+
+.input input[type=text] {
+  padding: 0.2em 0.3em;
+  font-size: 24px;
+  border-width: 1px;
+  border-color: black;
+  text-shadow: 0.034em 0.034em #D8DED3;
+  border-radius: 0.25em;
+}
+
+.input input[type=password] {
+  padding: 0.2em 0.3em;
+  font-size: 24px;
+  border-width: 1px;
+  border-color: black;
+  text-shadow: 0.034em 0.034em #D8DED3;
+  border-radius: 0.25em;
+}
+
 .input p {
   margin: 0.5em 0em;
   font-weight: bold;
@@ -260,11 +287,11 @@ body {
 }
 
 .list td {
-  padding-left: 3em;
   border-bottom: 1px solid black;
   color: #D8DED3;
   text-shadow: 0.034em 0.034em black;
   font-size: 18px;
+  width: 100%;
 }
 
 .list th {
@@ -290,6 +317,11 @@ body {
 .skrt {
   display: flex;
   justify-content: space-evenly;
+}
+
+.listFlow{
+  overflow-y:scroll;
+  height:27.5em;
 }
 
 .knap input[type=submit] {
