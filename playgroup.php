@@ -36,6 +36,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")  {
       header("location:lists.php");
     } else if(isset($_POST['msg'])){
       $_SESSION['msg'] = $_POST['userid'];
+      header("location:message.php");
+    } else if(isset($_POST['mutualwant'])){
+      $_SESSION['mutuallist'] = "want";
+      header("location:mutual.php");
+    } else if(isset($_POST['mutualtrade'])){
+      $_SESSION['mutuallist'] = "want";
+      header("location:mutual.php");
     }
 
 }
@@ -87,6 +94,14 @@ if($result->num_rows > 0){
 <form method='POST'>
 <input type='email' name='mail' placeholder='example@btp.com'>
 <input type='submit' name='adduser' value='Add user'/>
+</form>
+
+<form method='POST'>
+<input type='submit' name='mutualwant' value='Cards you want others have'/>
+</form>
+
+<form method='POST'>
+<input type='submit' name='mutualtrade' value='Cards you have others want'/>
 </form>
 
 <form method='POST'>
