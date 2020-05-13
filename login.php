@@ -1,15 +1,19 @@
 <?php
-//Here a session is started, so any login-details can be saved
 session_start();
-//Connect to our database
+//Here a session is started, so any login-details can be saved
+
 include('config.php');
+//Connect to our database
+
 
 function userID($email, $conn){
+  //Defines the function with two parameters
   $sql = "SELECT id FROM user WHERE email='$email';";
   $result = $conn->query($sql);
-  $fetch = $result;
-  $row = mysqli_fetch_assoc($fetch);
+  //Uses an SQL-statement to get the id of the user with email equal to the given parameter
+  $row = mysqli_fetch_assoc($result);
   return $row['id'];
+  //Returns the id
 }
 
 //Variables for checking login are created
