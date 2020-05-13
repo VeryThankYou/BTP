@@ -18,6 +18,7 @@ body {
   background-color: #755292;
   height: 64px;
   padding: 0.1em;
+  box-shadow: 0em -2em 0.5em 2em;
 }
 
 .header p{
@@ -434,7 +435,6 @@ body {
 .other input[type=email] {
   padding: 0.3em 0.3em;
   font-size: 24px;
-  /* font-family: MagicFont; */
   border-width: 1px;
   border-color: black;
   text-shadow: 0.034em 0.034em #D8DED3;

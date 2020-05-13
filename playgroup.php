@@ -88,7 +88,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")  {
         $result = $conn->query($sql);
         $row = mysqli_fetch_assoc($result);
         $name = $row['name'];
-        echo "<h1> $name </h1>";
+        echo "<h1>$name</h1>";
         $id = $_SESSION['id'];
         $sql = "SELECT * FROM user INNER JOIN user_playgroup ON user.id=user_playgroup.user_id WHERE user_playgroup.playgroup_id='$playgroupid';";
         $result = $conn->query($sql);
@@ -107,7 +107,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")  {
 
     <div class="other">
       <div class="container">
-        <div class="container">
+
           <?php
             $playgroupid = $_SESSION['playgroup'];
             $sql = "SELECT * FROM playgroup WHERE id='$playgroupid';";
@@ -116,10 +116,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")  {
             $name = $row['name'];
             $creator = $row['user_id'];
             if($id == $creator){
-              echo "<form method='POST'><table><tr><td><p>Change playgroup name:</p></td></tr><tr><td><input type='text' name='playname' placeholder='Write name here'/></td></tr><tr><td><input type='submit' name='changename' value='Change playgroup name'/></td></tr></table></form>";
+              echo "<div class='container'><form method='POST'><table><tr><td><p>Change playgroup name:</p></td></tr><tr><td><input type='text' name='playname' placeholder='Write name here'/></td></tr><tr><td><input type='submit' name='changename' value='Change playgroup name'/></td></tr></table></form></div>";
             }
           ?>
-        </div>
         <div class="container">
           <form method='POST'>
             <table>
