@@ -472,3 +472,37 @@ body {
   text-shadow: 0.034em 0.034em #D8DED3;
   border-radius: 0.25em;
 }
+
+.combiList{
+  width: 40em;
+  overflow-y: scroll;
+  max-height: 35em;
+}
+
+.combiList h2{
+  font-size: 32px;
+  font-family: MagicFont;
+  color: black;
+  text-shadow: 0.034em 0.034em #D8DED3;  
+}
+
+.combiCard {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.combiCard div{
+  width: 50%;
+}
+
+.combiCard p{
+  color: #D8DED3;
+  text-shadow: 0.034em 0.034em black;
+  font-size: 18px;
+}
+
+.combiCard h1{
+  color: #D8DED3;
+  text-shadow: 0.034em 0.034em black;
+}

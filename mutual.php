@@ -51,45 +51,57 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
   </div>
 
   <div style="clear:both;"></div>
-  <?php
-  $list = $_SESSION['mutuallist'];
-  if($list == "want"){
-      echo "<h2> This is a list of cards that you want that your playgroup have </h2>";
-  } else if($list == "trade"){
-      echo "<h2> This is a list of cards that you have that your playgroup want </h2>";
-  }
-  $playgroupid = $_SESSION['playgroup'];
-  $myid = $_SESSION['id'];
-  
-  if($list == "want"){
-    $sql = "SELECT * FROM otherslist INNER JOIN mylist ON mylist.smcid=otherslist.stcid WHERE stpgid='$playgroupid' AND stuid<>'$myid' AND sttrading>0 AND smwant>0 AND smuid='$myid';";
-    $result = $conn->query($sql);
-    if($result->num_rows > 0){
-        while($row = $result->fetch_assoc()){
-            $exp = $row['stexp'];
-            $cname = $row['stcname'];
-            $uname = $row['stdname'];
-            $num = $row['sttrading'];
-            echo "<p> $num, $cname, $exp, $uname </p>";
-        }
-    }
-  } else if($list == "trade"){
-    $sql = "SELECT * FROM otherslist INNER JOIN mylist ON mylist.smcid=otherslist.stcid WHERE stpgid='$playgroupid' AND stuid<>'$myid' AND stwant>0 AND smtrading>0 AND smuid='$myid';";
-    $result = $conn->query($sql);
-    if($result->num_rows > 0){
-        while($row = $result->fetch_assoc()){
-            $exp = $row['stexp'];
-            $cname = $row['stcname'];
-            $uname = $row['stdname'];
-            $num = $row['stwant'];
-            echo "<p> $num, $cname, $exp, $uname </p>";
-        }
-    }
-  }
+  <form method='POST' class="knap">
+    <input type='submit' name='back' value='Back'>
+  </form>
 
-  ?>
-<form method='POST'>
-<input type='submit' name='back' value='Back'/>
-</form>
+  <div class="mainCon">
+    <div class="container combiList">
+      <?php
+      $list = $_SESSION['mutuallist'];
+      if($list == "want"){
+          echo "<h2>Cards that you want that your playgroup has:</h2>";
+      } else if($list == "trade"){
+          echo "<h2>Cards that you have that your playgroup wants:</h2>";
+      }
+      $playgroupid = $_SESSION['playgroup'];
+      $myid = $_SESSION['id'];
+      
+      if($list == "want"){
+        $sql = "SELECT * FROM otherslist INNER JOIN mylist ON mylist.smcid=otherslist.stcid WHERE stpgid='$playgroupid' AND stuid<>'$myid' AND sttrading>0 AND smwant>0 AND smuid='$myid';";
+        $result = $conn->query($sql);
+        if($result->num_rows > 0){
+            while($row = $result->fetch_assoc()){
+                $exp = $row['stexp'];
+                $cname = $row['stcname'];
+                $uname = $row['stdname'];
+                $num = $row['sttrading'];
+                echo "<div class='container combiCard'>";
+                echo "<div class='container'><h1>$num - $cname</h1></div>";
+                echo "<div class='container'><p>Set: $exp</p><p>Owner: $uname</p></div>";
+                echo "</div>";
+            }
+        }
+      } else if($list == "trade"){
+        $sql = "SELECT * FROM otherslist INNER JOIN mylist ON mylist.smcid=otherslist.stcid WHERE stpgid='$playgroupid' AND stuid<>'$myid' AND stwant>0 AND smtrading>0 AND smuid='$myid';";
+        $result = $conn->query($sql);
+        if($result->num_rows > 0){
+            while($row = $result->fetch_assoc()){
+                $exp = $row['stexp'];
+                $cname = $row['stcname'];
+                $uname = $row['stdname'];
+                $num = $row['stwant'];
+                echo "<div class='container combiCard'>";
+                echo "<div class='container'><h1>$num - $cname</h1></div>";
+                echo "<div class='container'><p>Set: $exp</p><p>Owner: $uname</p></div>";
+                echo "</div>";
+            }
+        }
+      }
+
+      ?>
+    </div>
+  </div>
+
 </body>
 </html>
