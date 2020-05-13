@@ -309,8 +309,22 @@ body {
   width: 25em;
 }
 
+.saet input[type=submit] {
+  padding: 0.3em 0.3em;
+  font-size: 24px;
+  font-weight: bold;
+  background-color: transparent;
+  cursor: pointer;
+  border-width: 1px;
+  border-color: black;
+  border-radius: 0.25em;
+  width: 100%;
+}
+
 .soeg {
   width: 25em;
+  overflow-y: scroll;
+  max-height: 32em;
 }
 
 .soeg input[type=submit] {
@@ -333,4 +347,25 @@ body {
   border-color: black;
   text-shadow: 0.034em 0.034em #D8DED3;
   border-radius: 0.25em;
+}
+
+.soeg p{
+  font-size: 60px;
+  font-family: MagicFont;
+  letter-spacing: 0.1em;
+  color: black;
+  text-shadow: 0.034em 0.034em #D8DED3;
+}
+
+.soeg input[type=number] {
+  padding: 0.2em 0.2em;
+  font-size: 16px;
+  border-width: 1px;
+  border-color: black;
+  text-shadow: 0.034em 0.034em #D8DED3;
+  border-radius: 0.25em;
+} 
+
+.soeg h2{
+  color: #D8DED3;
 }

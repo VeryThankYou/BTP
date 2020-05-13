@@ -120,7 +120,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")  {
               $name = $row['name'];
               $expset = $row['expset'];
               $id = $row['id'];
-              echo "<h1>$name</h1> <h2>$expset</h2><form method='POST'> <input type='number' name='num'/> <input type='submit' name='add' value='Add card' /><input type='hidden' value='$id' name='addid'/></form>";
+              echo "<div class='container'><h1>$name</h1> <h2>$expset</h2><form method='POST'> <input type='number' name='num'/> <input type='submit' name='add' value='Add card' /><input type='hidden' value='$id' name='addid'/></form></div>";
             ?>
 
             </div>
@@ -138,7 +138,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")  {
         $sql = "SELECT DISTINCT expset FROM card ORDER BY expset ASC;";
         $result2 = $conn->query($sql);
         while($row = $result2->fetch_assoc()) {
-          echo "<form method='POST'> <input type='submit' name='expset' value='" . $row['expset'] . "'/> <input type='hidden' name='name' value='" . $row['expset'] . "'/> </form>";
+          echo "<div class='container'><form method='POST'><input type='submit' name='expset' value='" . $row['expset'] . "'/> <input type='hidden' name='name' value='" . $row['expset'] . "'/> </form></div>";
         }
       ?>
     </div>
