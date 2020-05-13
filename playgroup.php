@@ -31,6 +31,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")  {
       $conn->query($sql);
     } else if(isset($_POST['back'])){
       header("location:main.php");
+    } else if(isset($_POST['viewlists'])){
+      $_SESSION['listowner'] = $_POST['userid'];
+      header("location:lists.php");
+    } else if(isset($_POST['msg'])){
+      $_SESSION['msg'] = $_POST['userid'];
+      header("location:message.php");
+    } else if(isset($_POST['mutualwant'])){
+      $_SESSION['mutuallist'] = "want";
+      header("location:mutual.php");
+    } else if(isset($_POST['mutualtrade'])){
+      $_SESSION['mutuallist'] = "want";
+      header("location:mutual.php");
     }
 
 }
@@ -70,8 +82,10 @@ if($result->num_rows > 0){
 
         <?php
           $name = $row['displayname'];
-          $id = $row['id'];
-          echo "<p>$name</p>";
+          $uid = $row['id'];
+          if($uid != $id){
+            echo "<p>$name</p> <form method='POST'> <input type='submit' name='viewlists' value='View lists'/> <input type='submit' name='msg' value='Message'/> <input type='hidden' name='userid' value='$uid'/> </form>";
+          }
           
     }
   }
@@ -80,6 +94,14 @@ if($result->num_rows > 0){
 <form method='POST'>
 <input type='email' name='mail' placeholder='example@btp.com'>
 <input type='submit' name='adduser' value='Add user'/>
+</form>
+
+<form method='POST'>
+<input type='submit' name='mutualwant' value='Cards you want others have'/>
+</form>
+
+<form method='POST'>
+<input type='submit' name='mutualtrade' value='Cards you have others want'/>
 </form>
 
 <form method='POST'>
