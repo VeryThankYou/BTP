@@ -36,11 +36,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST")  {
   } else if(isset($_POST['dlttr'])){
     $cid = $_POST['dltid'];
     $uid = $_SESSION['id'];
-    $sql = "UPDATE user_card SET trading='0' WHERE user_id='$userid' AND card_id='$cardid'"
+    $sql = "UPDATE user_card SET trading='0' WHERE user_id='$uid' AND card_id='$cid';";
+    $conn->query($sql);
   } else if(isset($_POST['dltwa'])){
     $cid = $_POST['dltid'];
     $uid = $_SESSION['id'];
-    $sql = "UPDATE user_card SET want='0' WHERE user_id='$userid' AND card_id='$cardid'"
+    $sql = "UPDATE user_card SET want='0' WHERE user_id='$uid' AND card_id='$cid';";
+    $conn->query($sql);
   }
   }
 
