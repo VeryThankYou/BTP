@@ -37,6 +37,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $msg = "Hi $recname, \n\nYou have a new message on Balduvian Trading Post from $myname. They hope to hear from you soon!\n\nBest regards,\nThe Balduvian Trading Post Team";
     $msg = wordwrap($msg, 70);
     mail($email, 'New message', $msg);
+  } else if(isset($_POST['home'])){
+    header('location:main.php');
+  } else if(isset($_POST['back'])){
+    header('location:playgroup.php');
   }
 }
 
@@ -57,7 +61,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
   <div class="header">
     <div class="header_left">
       <form method="POST">
-        <input type='submit' name='back' value='BTP'>
+        <input type='submit' name='home' value='BTP'>
       </form>
     </div>
 
@@ -70,33 +74,45 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
   </div>
 
   <div style="clear:both;"></div>
+  
+  <form method='POST' class="knap">
+    <input type='submit' name='back' value='Back'/>
+  </form>
 
-  <?php
-  $myid = $_SESSION['id'];
-  $friendid = $_SESSION['msg'];
-  $friendname = displayName($friendid, $conn);
-  echo "<div> Messages with $friendname </div>";
-  $sql = "SELECT * FROM message WHERE (receiver_user_id='$myid' AND sender_user_id='$friendid') OR (receiver_user_id='$friendid' AND sender_user_id='$myid');";
-  $result = $conn->query($sql);
-  if($result->num_rows > 0){
-    while($row = $result->fetch_assoc()){
-      $sender = $row['sender_user_id'];
-      $receiver = $row['receiver_user_id'];
-      $msg = $row['text'];
-      $datetime = $row['time'];
-      $meid = $_SESSION['id'];
-      if($meid == $sender){
-        echo "<div class='navngiv din klasse william'>$msg <br> $datetime </div>";
-      } else{
-        echo "<div class='navngiv din anden klasse william'>$msg <br> $datetime </div>";
+  <div class="mainCon">
+    <div class="container beskedBoks">
+      <?php
+      $myid = $_SESSION['id'];
+      $friendid = $_SESSION['msg'];
+      $friendname = displayName($friendid, $conn);
+      echo "<div class='container'><h1>Messages with $friendname</h1></div>";
+      $sql = "SELECT * FROM message WHERE (receiver_user_id='$myid' AND sender_user_id='$friendid') OR (receiver_user_id='$friendid' AND sender_user_id='$myid');";
+      $result = $conn->query($sql);
+      if($result->num_rows > 0){
+        echo "<div class='beskeder'>";
+        while($row = $result->fetch_assoc()){
+          $sender = $row['sender_user_id'];
+          $receiver = $row['receiver_user_id'];
+          $msg = $row['text'];
+          $datetime = $row['time'];
+          $meid = $_SESSION['id'];
+          if($meid == $sender){
+            echo "<div class='container send'>$msg <br><p> $datetime </p></div>";
+            echo "<div></div>";
+          } else{
+            echo "<div class='container receive'>$msg <br><p> $datetime </p></div>";
+            echo "<div></div>";
+          }
+        }
+        echo "</div>";
       }
-    }
-  }
-  ?>
-<form method='POST'>
-<input type='text' name='msgtxt' placeholder='Write your message here...'/>
-<input type='submit' name='send' value='send'/>
-</form>
-
+      ?>
+      <div style="clear:both;"></div>
+      <form method='POST' class='container'>
+        <input type='text' name='msgtxt' placeholder='Write your message here...'/>
+        <input type='submit' name='send' value='Send'/>
+      </form>
+    </div>
+  </div>
 </body>
 </html>

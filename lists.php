@@ -23,8 +23,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST")  {
   } else if(isset($_POST['addtrades'])){
     $_SESSION['listtoadd'] = "trades";
     header('location:addcards.php');
-
   } else if(isset($_POST['home'])){
+    header('location:main.php');
+  } else if(isset($_POST['back'])){
     $user = $_SESSION['id'];
     $owner = $_SESSION['listowner'];
     if($user == $owner){
@@ -76,6 +77,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST")  {
   </div>
 
   <div style="clear:both;"></div>
+  <form method='POST' class="knap">
+    <input type='submit' name='back' value='Back'>
+  </form>
 
 	<div class="mainList">
     <div class="container list">
