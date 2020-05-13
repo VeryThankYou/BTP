@@ -24,7 +24,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")  {
     $_SESSION['listtoadd'] = "trades";
     header('location:addcards.php');
 
-  } else if(isset($_POST['back'])){
+  } else if(isset($_POST['home'])){
     $user = $_SESSION['id'];
     $owner = $_SESSION['listowner'];
     if($user == $owner){
@@ -53,7 +53,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")  {
   <div class="header">
     <div class="header_left">
       <form method="POST">
-        <input type='submit' name='back' value='BTP'>
+        <input type='submit' name='home' value='BTP'>
       </form>
     </div>
 

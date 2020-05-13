@@ -17,7 +17,6 @@ function userID($email, $conn){
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST")  {
-    //Checks if we have pushed the button named conversation
     if(isset($_POST['changename'])){
       $name = $_POST['playname'];
       $playgroupid = $_SESSION['playgroup'];
@@ -55,58 +54,99 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")  {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="css/main.css">
-  <title>Document</title>
+  <link rel="stylesheet" href="styling/maincss.css">
+  <title>Balduvian Trading Post</title>
 </head>
 <body>
-<?php
-$playgroupid = $_SESSION['playgroup'];
-$sql = "SELECT * FROM playgroup WHERE id='$playgroupid';";
-$result = $conn->query($sql);
-$row = mysqli_fetch_assoc($result);
-$name = $row['name'];
-$creator = $row['user_id'];
-echo "<h1> $name </h1>";
-$id = $_SESSION['id'];
-if($id == $creator){
-  echo "<form method='POST'> <input type='text' name='playname' placeholder='Write name here'/> <input type='submit' name='changename' value='Change playgroup name'/> </form>";
-}
-$sql = "SELECT * FROM user INNER JOIN user_playgroup ON user.id=user_playgroup.user_id WHERE user_playgroup.playgroup_id='$playgroupid';";
-$result = $conn->query($sql);
-if($result->num_rows > 0){
 
-    // løb alle rækker igennem
-    while($row = $result->fetch_assoc()) {
-    ?>  
-      <div class="container stuff">
+  <div class="header">
+    <div class="header_left">
+      <form method="POST">
+        <input type='submit' name='home' value='BTP'>
+      </form>
+    </div>
 
-        <?php
-          $name = $row['displayname'];
-          $uid = $row['id'];
-          if($uid != $id){
-            echo "<p>$name</p> <form method='POST'> <input type='submit' name='viewlists' value='View lists'/> <input type='submit' name='msg' value='Message'/> <input type='hidden' name='userid' value='$uid'/> </form>";
+    <div class="header_right">
+      <a href="index.php">
+        <p>Logout</p>
+      </a>
+    </div>
+  </div>
+
+  <div style="clear:both;"></div>
+
+  <form method='POST' class="knap">
+    <input type='submit' name='back' value='Back'/>
+  </form>
+
+  <div class="mainCon">
+
+    <div class="container friends">
+      <?php
+        $playgroupid = $_SESSION['playgroup'];
+        $sql = "SELECT * FROM playgroup WHERE id='$playgroupid';";
+        $result = $conn->query($sql);
+        $row = mysqli_fetch_assoc($result);
+        $name = $row['name'];
+        echo "<h1>$name</h1>";
+        $id = $_SESSION['id'];
+        $sql = "SELECT * FROM user INNER JOIN user_playgroup ON user.id=user_playgroup.user_id WHERE user_playgroup.playgroup_id='$playgroupid';";
+        $result = $conn->query($sql);
+        if($result->num_rows > 0){
+
+          while($row = $result->fetch_assoc()) {
+            $name = $row['displayname'];
+            $uid = $row['id'];
+            if($uid != $id){
+              echo "<div class='container'><p>$name</p> <form method='POST' class='knap'> <input type='submit' name='viewlists' value='View lists'/> <input type='submit' name='msg' value='Message'/> <input type='hidden' name='userid' value='$uid'/> </form></div>";
+            }
           }
-          
-    }
-  }
-?>
+        }
+      ?>
+    </div>
 
-<form method='POST'>
-<input type='email' name='mail' placeholder='example@btp.com'>
-<input type='submit' name='adduser' value='Add user'/>
-</form>
+    <div class="other">
+      <div class="container">
 
-<form method='POST'>
-<input type='submit' name='mutualwant' value='Cards you want others have'/>
-</form>
+          <?php
+            $playgroupid = $_SESSION['playgroup'];
+            $sql = "SELECT * FROM playgroup WHERE id='$playgroupid';";
+            $result = $conn->query($sql);
+            $row = mysqli_fetch_assoc($result);
+            $name = $row['name'];
+            $creator = $row['user_id'];
+            if($id == $creator){
+              echo "<div class='container'><form method='POST'><table><tr><td><p>Change playgroup name:</p></td></tr><tr><td><input type='text' name='playname' placeholder='Write name here'/></td></tr><tr><td><input type='submit' name='changename' value='Change playgroup name'/></td></tr></table></form></div>";
+            }
+          ?>
+        <div class="container">
+          <form method='POST'>
+            <table>
+              <tr>
+                <td><p>Add a user:</p></td>
+              </tr>
+              <tr>
+                <td><input type='email' name='mail' placeholder='example@btp.com'></td>
+              </tr>
+              <tr>
+              <td><input type='submit' name='adduser' value='Add user'/></td>
+              </tr>
+            </table>
+          </form>
+        </div>
+      </div>
 
-<form method='POST'>
-<input type='submit' name='mutualtrade' value='Cards you have others want'/>
-</form>
+      <div class="container">
+        <form method='POST'>
+          <input type='submit' name='mutualwant' value='Cards you want others have'/>
+        </form>
 
-<form method='POST'>
-<input type='submit' name='back' value='Back'/>
-</form>
+        <form method='POST'>
+          <input type='submit' name='mutualtrade' value='Cards you have others want'/>
+        </form>
+      </div>
+    </div>
+  </div>
 
 </body>
 </html>

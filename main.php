@@ -66,7 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")  {
   <div class="header">
     <div class="header_left">
       <form method="POST">
-        <input type='submit' name='back' value='BTP'>
+        <input type='submit' name='home' value='BTP'>
       </form>
     </div>
 

@@ -17,13 +17,14 @@ function userID($email, $conn){
 }
 
 if($_SERVER["REQUEST_METHOD"] == "POST")  {
-    if(isset($_POST['back'])){
+    if(isset($_POST['home'])){
+        header("location:main.php");
+    } else if(isset($_POST['back'])){
         header("location:lists.php");
     } else if(isset($_POST['expset'])){
         $expset = $_POST['name'];
         $sql = "SELECT * FROM card WHERE expset='$expset';";
         $result = $conn->query($sql);
-
     } else if(isset($_POST['sea'])){
       $term = $_POST['search'];
       $sql = "SELECT * FROM card WHERE name LIKE '%$term%';";
@@ -72,7 +73,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")  {
   <div class="header">
     <div class="header_left">
       <form method="POST">
-        <input type='submit' name='back' value='BTP'>
+        <input type='submit' name='home' value='BTP'>
       </form>
     </div>
 
@@ -111,7 +112,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")  {
               $name = $row['name'];
               $expset = $row['expset'];
               $id = $row['id'];
-              echo "<h1>$name</h1> <h2>$expset</h2><form method='POST'> <input type='number' name='num'/> <input type='submit' name='add' value='Add card' /><input type='hidden' value='$id' name='addid'/></form>";
+              echo "<div class='container'><h1>$name</h1> <h2>$expset</h2><form method='POST'> <input type='number' name='num'/> <input type='submit' name='add' value='Add card' /><input type='hidden' value='$id' name='addid'/></form></div>";
             ?>
 
             </div>
@@ -129,7 +130,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")  {
         $sql = "SELECT DISTINCT expset FROM card ORDER BY expset ASC;";
         $result2 = $conn->query($sql);
         while($row = $result2->fetch_assoc()) {
-          echo "<form method='POST'> <input type='submit' name='expset' value='" . $row['expset'] . "'/> <input type='hidden' name='name' value='" . $row['expset'] . "'/> </form>";
+          echo "<div class='container'><form method='POST'><input type='submit' name='expset' value='" . $row['expset'] . "'/> <input type='hidden' name='name' value='" . $row['expset'] . "'/> </form></div>";
         }
       ?>
     </div>
