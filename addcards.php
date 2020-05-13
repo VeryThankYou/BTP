@@ -47,10 +47,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST")  {
         unset($result);
       } else{
         if($list=="wants"){
-          $sql = "UPDATE user_card SET want='$numcards';";
+          $sql = "UPDATE user_card SET want='$numcards' WHERE user_id='$userid' AND card_id='$cardid'";
           $conn->query($sql);
         } else if($list=="trades"){
-          $sql = "UPDATE user_card SET trading='$numcards';";
+          $sql = "UPDATE user_card SET trading='$numcards' WHERE user_id='$userid' AND card_id='$cardid';";
           $conn->query($sql);
         }
         unset($result);

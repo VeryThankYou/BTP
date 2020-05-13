@@ -33,6 +33,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST")  {
       header('location:playgroup.php');
     }
 
+  } else if(isset($_POST['dlttr'])){
+    $cid = $_POST['dltid'];
+    $uid = $_SESSION['id'];
+    $sql = "UPDATE user_card SET trading='0' WHERE user_id='$userid' AND card_id='$cardid'"
+  } else if(isset($_POST['dltwa'])){
+    $cid = $_POST['dltid'];
+    $uid = $_SESSION['id'];
+    $sql = "UPDATE user_card SET want='0' WHERE user_id='$userid' AND card_id='$cardid'"
   }
   }
 
