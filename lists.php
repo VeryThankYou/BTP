@@ -87,7 +87,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")  {
           $result = $conn->query($sql);
           if($result->num_rows > 0){
         ?>
-          <div>
+          <div class="listFlow">
             <table>
                 
               <?php
@@ -106,7 +106,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")  {
                   $owner = $_SESSION['listowner'];
                   $cid = $row['card_id'];
                   if($user == $owner){
-                    echo "<td><form method='POST'> <input='submit' name='dltwa' value='Delete'/> <input type='hidden' name='dltid' value='$cid'/> </form></td>";
+                    echo "<td><form method='POST'> <input type='submit' name='dltwa' value='Delete'> <input type='hidden' name='dltid' value='$cid'> </form></td>";
                   }
                 ?>
                 </tr>
@@ -161,7 +161,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")  {
                 $owner = $_SESSION['listowner'];
                 $cid = $row['card_id'];
                 if($user == $owner){
-                  echo "<td><form method='POST'> <input='submit' name='dlttr' value='Delete'/> <input type='hidden' name='dltid' value='$cid'/> </form></td>";
+                  echo "<td><form method='POST'> <input type='submit' name='dlttr' value='Delete'> <input type='hidden' name='dltid' value='$cid'> </form></td>";
                 }
               }
                 echo "</tr>";

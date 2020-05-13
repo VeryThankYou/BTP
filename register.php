@@ -141,7 +141,7 @@ function openAuth() {
           <input type="hidden" name="hiddenPassword" <?php if(isset($password)){echo 'value='.$password;}?> >
           <input type="hidden" name="hiddenDispname" <?php if(isset($displayname)){echo 'value='.$displayname;}?> >
           <input type="hidden" name="hiddenEmail" <?php if(isset($email)){echo 'value='.$email;}?> > 
-      
+      </form>
     </div>
   
 
