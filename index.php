@@ -1,18 +1,22 @@
 <?php
-// To have access to the sessions variables
 session_start();
-// Contains our connection to our database
+// To have access to the sessions variables
 include('config.php');
+// Contains our connection to our database
 session_unset();
-//Checks if a submit button that is inside the form, has been pushed.
+//Unsets all session variables
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  //Checks if it is the login button
+    //Checks if a submit button that is inside the form, has been pushed.
   if(isset($_POST["login"])) {
-  header('location:login.php');
+    //Checks if it is the login button
+    header('location:login.php');
+    //If it is, send user to login.php
   } 
-  //There are only 2 buttons so if it is not the first then it is the second.
   else {
-    header('location:register.php');	}
+      //There are only 2 buttons so if it is not the first then it is the second.
+      header('location:register.php');
+      //Sends the user to register.php
+}
 	}
 ?>
 
