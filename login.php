@@ -77,7 +77,7 @@ if(!empty( $_POST['email'] ) && !empty( $_POST['pw'] )) {
           <th>Email: <br/></th>
         </tr>
         <tr>
-          <th><input type="text" name="email" placeholder="Enter email" required/></th>
+          <th><input type="email" name="email" placeholder="Enter email" required/></th>
         </tr>
 
         <tr>

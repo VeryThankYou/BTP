@@ -67,6 +67,34 @@ body {
   border-radius: 0.25em;
 }
 
+.container input[type=email] {
+  padding: 0.2em 0.3em;
+  font-size: 24px;
+  border-width: 1px;
+  border-color: black;
+  text-shadow: 0.034em 0.034em #D8DED3;
+  border-radius: 0.25em;
+}
+
+.container input[type=text] {
+  padding: 0.2em 0.3em;
+  font-size: 24px;
+  border-width: 1px;
+  border-color: black;
+  text-shadow: 0.034em 0.034em #D8DED3;
+  border-radius: 0.25em;
+  font-family: MagicFont;
+}
+
+.container input[type=password] {
+  padding: 0.2em 0.3em;
+  font-size: 24px;
+  border-width: 1px;
+  border-color: black;
+  text-shadow: 0.034em 0.034em #D8DED3;
+  border-radius: 0.25em;
+}
+
 .knap input[type=submit]{
   padding: 0.3em 0.3em;
   font-size: 24px;
@@ -105,32 +133,15 @@ body {
 
 .input input[type=email] {
   width: 100%;
-  padding: 0.2em 0.3em;
-  font-size: 24px;
-  border-width: 1px;
-  border-color: black;
-  text-shadow: 0.034em 0.034em #D8DED3;
-  border-radius: 0.25em;
 }
 
 .input input[type=text] {
   width: 100%;
-  padding: 0.2em 0.3em;
-  font-size: 24px;
-  border-width: 1px;
-  border-color: black;
-  text-shadow: 0.034em 0.034em #D8DED3;
-  border-radius: 0.25em;
+  font-family: sans-serif;
 }
 
 .input input[type=password] {
   width: 100%;
-  padding: 0.2em 0.3em;
-  font-size: 24px;
-  border-width: 1px;
-  border-color: black;
-  text-shadow: 0.034em 0.034em #D8DED3;
-  border-radius: 0.25em;
 }
 
 .input p {
@@ -165,6 +176,7 @@ body {
 }
 
 .auth input[type=text] {
+  font-size: 16px;
   margin-bottom: 0.5em;
   margin-top: 0.334em;
 }
@@ -224,16 +236,6 @@ body {
   text-shadow: 0.034em 0.034em #D8DED3;
   font-family: MagicFont;
   text-align: center;
-}
-
-.mcGroup input[type=text] {
-  padding: 0.3em 0.3em;
-  font-size: 24px;
-  font-family: MagicFont;
-  border-width: 1px;
-  border-color: black;
-  text-shadow: 0.034em 0.034em #D8DED3;
-  border-radius: 0.25em;
 }
 
 .stuff div {
@@ -310,16 +312,6 @@ body {
   max-height: 32em;
 }
 
-.soeg input[type=text] {
-  padding: 0.3em 0.3em;
-  font-size: 24px;
-  font-family: MagicFont;
-  border-width: 1px;
-  border-color: black;
-  text-shadow: 0.034em 0.034em #D8DED3;
-  border-radius: 0.25em;
-}
-
 .soeg p{
   font-size: 60px;
   font-family: MagicFont;
@@ -380,25 +372,6 @@ body {
   text-shadow: 0.034em 0.034em #D8DED3;  
 }
 
-.other input[type=text] {
-  padding: 0.3em 0.3em;
-  font-size: 24px;
-  font-family: MagicFont;
-  border-width: 1px;
-  border-color: black;
-  text-shadow: 0.034em 0.034em #D8DED3;
-  border-radius: 0.25em;
-}
-
-.other input[type=email] {
-  padding: 0.3em 0.3em;
-  font-size: 24px;
-  border-width: 1px;
-  border-color: black;
-  text-shadow: 0.034em 0.034em #D8DED3;
-  border-radius: 0.25em;
-}
-
 .combiList{
   width: 40em;
   overflow-y: scroll;
@@ -446,18 +419,13 @@ body {
   text-shadow: 0.034em 0.034em #D8DED3;
 }
 
-.beskedBoks input[type=text] {
-  padding: 0.3em 0.3em;
-  font-size: 24px;
-  border-width: 1px;
-  border-color: black;
-  text-shadow: 0.034em 0.034em #D8DED3;
-  border-radius: 0.25em;
-}
-
 .beskedBoks p{
   color: #D8DED3;
   text-shadow: 0.034em 0.034em black;
+}
+
+.beskedBoks input[type=text] {
+  font-family: sans-serif;
 }
 
 .send {
