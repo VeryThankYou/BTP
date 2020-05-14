@@ -6,7 +6,7 @@ include('config.php');
 
 if(!isset($_SESSION['id'])){
   header('location: index.php');
-  //Check if we have a session called id. This way we block users from changing the url and trying to skip login.
+  //Check if we have a session variable called id. This way we block users from changing the url and trying to skip login.
 }
 
 
