@@ -8,6 +8,11 @@ if(!isset($_SESSION['id'])){
   //Check if we have a session variable called id. This way we block users from changing the url and trying to skip login. 
 }
 
+if(!isset($_SESSION['msg'])){
+  header('location: main.php');  
+  //Check if we have a session variable called msg. This way we block users from changing the url, and this page doesn't work without that session variable.
+}
+
 function userEmail($userid, $conn){
   //Defines the function with two parameters
   $sql = "SELECT email FROM user WHERE id='$userid';";
