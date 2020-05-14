@@ -55,6 +55,30 @@ body {
   border-width: 0.1em;
 }
 
+.container input[type=submit]{
+  padding: 0.3em 0.3em;
+  font-size: 24px;
+  font-family: MagicFont;
+  background-color: #755292;
+  cursor: pointer;
+  border-width: 1px;
+  border-color: black;
+  text-shadow: 0.034em 0.034em #D8DED3;
+  border-radius: 0.25em;
+}
+
+.knap input[type=submit]{
+  padding: 0.3em 0.3em;
+  font-size: 24px;
+  font-family: MagicFont;
+  background-color: #755292;
+  cursor: pointer;
+  border-width: 1px;
+  border-color: black;
+  text-shadow: 0.034em 0.034em #D8DED3;
+  border-radius: 0.25em;
+}
+
 .input {
   font-size: 16px;
   margin: auto;
@@ -68,16 +92,52 @@ body {
   width: 100%;
 }
 
-.input input[type=text]{
-  width: 100%;
+.input h1 {
+  font-size: 48px;
+  font-family: MagicFont;
+  text-shadow: 0.034em 0.034em #D8DED3;
 }
 
-.input input[type=email]{
-  width: 100%;
+.input input[type=submit] {
+  height: 3em;
+  width: 7em;
 }
 
-.input input[type=password]{
+.input input[type=email] {
   width: 100%;
+  padding: 0.2em 0.3em;
+  font-size: 24px;
+  border-width: 1px;
+  border-color: black;
+  text-shadow: 0.034em 0.034em #D8DED3;
+  border-radius: 0.25em;
+}
+
+.input input[type=text] {
+  width: 100%;
+  padding: 0.2em 0.3em;
+  font-size: 24px;
+  border-width: 1px;
+  border-color: black;
+  text-shadow: 0.034em 0.034em #D8DED3;
+  border-radius: 0.25em;
+}
+
+.input input[type=password] {
+  width: 100%;
+  padding: 0.2em 0.3em;
+  font-size: 24px;
+  border-width: 1px;
+  border-color: black;
+  text-shadow: 0.034em 0.034em #D8DED3;
+  border-radius: 0.25em;
+}
+
+.input p {
+  margin: 0.5em 0em;
+  font-weight: bold;
+  color: #D8DED3;
+  text-shadow: 0.034em 0.034em black;
 }
 
 .navi {
@@ -110,14 +170,7 @@ body {
 }
 
 .auth input[type=submit] {
-  font-family: MagicFont;
-  background-color: #755292;
-  border-width: 1px;
-  border-color: black;
-  text-shadow: 0.034em 0.034em #D8DED3;
-  border-radius: 0.25em;
   padding: 0.5em 1em;
-  cursor: pointer;
 }
 
 .navi button {
@@ -129,59 +182,6 @@ body {
   font-family: MagicFont;
   text-shadow: 0.034em 0.034em #D8DED3;
   width: 100%;
-}
-
-.input h1 {
-  font-size: 48px;
-  font-family: MagicFont;
-  text-shadow: 0.034em 0.034em #D8DED3;
-}
-
-.input input[type=submit] {
-  height: 3em;
-  width: 7em;
-  font-size: 24px;
-  font-family: MagicFont;
-  background-color: #755292;
-  border-width: 1px;
-  border-color: black;
-  text-shadow: 0.034em 0.034em #D8DED3;
-  border-radius: 0.25em;
-  cursor: pointer;
-}
-
-.input input[type=email] {
-  padding: 0.2em 0.3em;
-  font-size: 24px;
-  border-width: 1px;
-  border-color: black;
-  text-shadow: 0.034em 0.034em #D8DED3;
-  border-radius: 0.25em;
-}
-
-.input input[type=text] {
-  padding: 0.2em 0.3em;
-  font-size: 24px;
-  border-width: 1px;
-  border-color: black;
-  text-shadow: 0.034em 0.034em #D8DED3;
-  border-radius: 0.25em;
-}
-
-.input input[type=password] {
-  padding: 0.2em 0.3em;
-  font-size: 24px;
-  border-width: 1px;
-  border-color: black;
-  text-shadow: 0.034em 0.034em #D8DED3;
-  border-radius: 0.25em;
-}
-
-.input p {
-  margin: 0.5em 0em;
-  font-weight: bold;
-  color: #D8DED3;
-  text-shadow: 0.034em 0.034em black;
 }
 
 .mainCon {
@@ -203,15 +203,6 @@ body {
 
 .mcList input[type=submit] {
   margin-top: 1em;
-  padding: 0.3em 0.3em;
-  font-size: 24px;
-  font-family: MagicFont;
-  background-color: #755292;
-  cursor: pointer;
-  border-width: 1px;
-  border-color: black;
-  text-shadow: 0.034em 0.034em #D8DED3;
-  border-radius: 0.25em;
 }
 
 .mcList h1 {
@@ -233,18 +224,6 @@ body {
   text-shadow: 0.034em 0.034em #D8DED3;
   font-family: MagicFont;
   text-align: center;
-}
-
-.mcGroup input[type=submit] {
-  padding: 0.3em 0.3em;
-  font-size: 24px;
-  font-family: MagicFont;
-  background-color: #755292;
-  cursor: pointer;
-  border-width: 1px;
-  border-color: black;
-  text-shadow: 0.034em 0.034em #D8DED3;
-  border-radius: 0.25em;
 }
 
 .mcGroup input[type=text] {
@@ -302,18 +281,6 @@ body {
   font-size: 18px;
 }
 
-.list input[type=submit] {
-  padding: 0.3em 0.3em;
-  font-size: 24px;
-  font-family: MagicFont;
-  background-color: #755292;
-  cursor: pointer;
-  border-width: 1px;
-  border-color: black;
-  text-shadow: 0.034em 0.034em #D8DED3;
-  border-radius: 0.25em;
-}
-
 .listHeader {
   display: flex;
   justify-content: space-evenly;
@@ -324,18 +291,6 @@ body {
   height:27.5em;
 }
 
-.knap input[type=submit] {
-  padding: 0.3em 0.3em;
-  font-size: 24px;
-  font-family: MagicFont;
-  background-color: #755292;
-  cursor: pointer;
-  border-width: 1px;
-  border-color: black;
-  text-shadow: 0.034em 0.034em #D8DED3;
-  border-radius: 0.25em;
-}
-
 .saet {
   overflow-y: scroll;
   max-height: 32em;
@@ -343,14 +298,9 @@ body {
 }
 
 .saet input[type=submit] {
-  padding: 0.3em 0.3em;
-  font-size: 24px;
+  font-family: sans-serif;
   font-weight: bold;
   background-color: transparent;
-  cursor: pointer;
-  border-width: 1px;
-  border-color: black;
-  border-radius: 0.25em;
   width: 100%;
 }
 
@@ -358,18 +308,6 @@ body {
   width: 25em;
   overflow-y: scroll;
   max-height: 32em;
-}
-
-.soeg input[type=submit] {
-  padding: 0.3em 0.3em;
-  font-size: 24px;
-  font-family: MagicFont;
-  background-color: #755292;
-  cursor: pointer;
-  border-width: 1px;
-  border-color: black;
-  text-shadow: 0.034em 0.034em #D8DED3;
-  border-radius: 0.25em;
 }
 
 .soeg input[type=text] {
@@ -442,18 +380,6 @@ body {
   text-shadow: 0.034em 0.034em #D8DED3;  
 }
 
-.other input[type=submit] {
-  padding: 0.3em 0.3em;
-  font-size: 24px;
-  font-family: MagicFont;
-  background-color: #755292;
-  cursor: pointer;
-  border-width: 1px;
-  border-color: black;
-  text-shadow: 0.034em 0.034em #D8DED3;
-  border-radius: 0.25em;
-}
-
 .other input[type=text] {
   padding: 0.3em 0.3em;
   font-size: 24px;
@@ -518,18 +444,6 @@ body {
   font-family: MagicFont;
   color: black;
   text-shadow: 0.034em 0.034em #D8DED3;
-}
-
-.beskedBoks input[type=submit] {
-  padding: 0.3em 0.3em;
-  font-size: 24px;
-  font-family: MagicFont;
-  background-color: #755292;
-  cursor: pointer;
-  border-width: 1px;
-  border-color: black;
-  text-shadow: 0.034em 0.034em #D8DED3;
-  border-radius: 0.25em;
 }
 
 .beskedBoks input[type=text] {
