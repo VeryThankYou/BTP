@@ -40,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")  {
       //Checks if the button named back has been clicked, if it has, the user is sent to main.php
     } else if(isset($_POST['home'])){
       header("location:main.php");
-      //Checks if the button named main has been clicked, if it has, the user is sent to main.php
+      //Checks if the button named home has been clicked, if it has, the user is sent to main.php
     } else if(isset($_POST['viewlists'])){
       //Checks if the button named viewlists has been clicked
       $_SESSION['listowner'] = $_POST['userid'];
