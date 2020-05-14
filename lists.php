@@ -84,7 +84,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")  {
 	<div class="mainList">
     <div class="container list">
 
-      <div class="skrt">
+      <div class="listHeader">
         <h1>Wants</h1>
 
         <?php
@@ -138,7 +138,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")  {
     </div>
 
     <div class="container list">
-      <div class="skrt">
+      <div class="listHeader">
         <h1>Offers</h1>
       
         <?php

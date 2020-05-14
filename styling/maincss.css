@@ -314,7 +314,7 @@ body {
   border-radius: 0.25em;
 }
 
-.skrt {
+.listHeader {
   display: flex;
   justify-content: space-evenly;
 }
