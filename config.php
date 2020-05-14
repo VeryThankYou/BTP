@@ -13,4 +13,6 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 //In case of failed connection
+unset($password);
+//unsets the password variable
 ?>
