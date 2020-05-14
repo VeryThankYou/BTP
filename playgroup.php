@@ -29,6 +29,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")  {
       $sql = "INSERT INTO user_playgroup (user_id, playgroup_id) VALUES ('$userid', '$playgroupid');";
       $conn->query($sql);
     } else if(isset($_POST['back'])){
+      header("location:main.php");    
+    } else if(isset($_POST['home'])){
       header("location:main.php");
     } else if(isset($_POST['viewlists'])){
       $_SESSION['listowner'] = $_POST['userid'];
