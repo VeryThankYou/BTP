@@ -22,29 +22,31 @@ $pw="";
 $cpw="";
 $cemail="";
 
-//If the mail-input and the pw-input are send, the following happens:
 if(!empty( $_POST['email'] ) && !empty( $_POST['pw'] )) {
-  //The email and password from the input are saved in the variables $email and $pw
+  //If the mail-input and the pw-input are send, the following happens:
   $email = $_POST['email'];
   $pw = $_POST['pw'];
+  //The email and password from the input are saved in the variables $email and $pw
+
   
-  //Here we check our database for a user with the email given as input
   $sql = "SELECT password FROM user WHERE email='$email';";
   $result = $conn->query($sql);
-	$fetch = $result;
-  $row = mysqli_fetch_assoc($fetch);
+  $row = mysqli_fetch_assoc($result);
+  //Here we check our database for a user with the email given as input
+
   
-  //Here the hashed password of the user from the database, is saved in $cpw, and cmail is set to the mail given as input
 	$cpw = $row['password'];
   $cemail = $email;
+  //Here the hashed password of the user from the database, is saved in $cpw, and cmail is set to the mail given as input
+
 }
-  //Check if the mail is correct, and if the written password matches the hashed password from the database
   if($email == $cemail && password_verify($pw, $cpw) == true) {
-    //The mail is saved as a session-variable
+    //Check if the mail is correct, and if the written password matches the hashed password from the database
     $_SESSION['email'] = $email;
     $_SESSION['id'] = userID($email, $conn);
-    //Redirects to main.php
+    //The mail is saved as a session-variable
     header('location:main.php');
+    //Redirects to main.php
   }
 
 ?>
