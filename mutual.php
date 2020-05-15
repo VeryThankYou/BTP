@@ -8,6 +8,10 @@ if(!isset($_SESSION['id'])){
   //Check if we have a session variable called id. This way we block users from changing the url and trying to skip login.
 }
 
+if(!isset($_SESSION['mutuallist'])){
+  header('location: main.php');  
+  //Check if we have a session variable called mutuallist. This way we block users from changing the url, and this page doesn't work without that session variable.
+}
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     if(isset($_POST['back'])){
